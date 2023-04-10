@@ -202,7 +202,7 @@
     </div>
 
     <main class="form-signin w-100 m-auto">
-      <form>
+      <form action="/signInValidation" method="POST">
         <img
           class="mb-4"
           src="https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/TMDicon.png?v=1681119981173"
@@ -217,6 +217,7 @@
             class="form-control"
             id="floatingInput"
             placeholder="name@example.com"
+                 required
           />
           <label for="floatingInput">Email address</label>
         </div>
@@ -226,6 +227,7 @@
             class="form-control"
             id="floatingPassword"
             placeholder="Password"
+                 required
           />
           <label for="floatingPassword">Password</label>
         </div>
