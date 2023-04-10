@@ -1,7 +1,9 @@
 from flask import Flask, render_template, url_for, redirect, request
+from flask_bcrypt import Bcrypt
 import sqlite3
 
 app = Flask(__name__)
+bcrypt = Bcrypt(app) # an encryption lib
 
 
 @app.route('/')
@@ -27,13 +29,15 @@ def signupValidation():
   username = request.form.get('name')
   mail = request.form.get('email')
   password = request.form.get('password')
-  # TODO: encrypt passwords using bcrypt flask   
+  
+  # encrypt passwords using bcrypt flask-bcrypt, require python3 to work
+  pw_hash = bcrypt.generate_password_hash(password)
   
   con = sqlite3.connect('accounts')
   con.row_factory = sqlite3.Row
   
   cur = con.cursor()
-  cmd = "INSERT INTO users (username, mail, password) VALUES('{0}', '{1}', '{2}')".format( username, mail, password)
+  cmd = 'INSERT INTO users (username, mail, password) VALUES("{0}", "{1}", "{2}")'.format( username, mail, pw_hash)
   cur.execute(cmd)
   
   con.commit()
