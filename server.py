@@ -13,11 +13,11 @@ def hello():
 @app.route("/signin")
 def signIn():
   return render_template("signIn.html")
-
+                        
 # the sign up page
 @app.route("/signup")
 def sign_Up():
-  return render_template("sign_Up.html")
+  return render_template("signUp.html")
 # TODO: create a database to store login credentials
 
 if __name__ == "__main__":

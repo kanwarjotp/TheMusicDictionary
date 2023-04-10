@@ -12,7 +12,7 @@
       type="image/png"
       href="https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/TMDicon.png?v=1681119981173"
     />
-    <title>Sign In</title>
+    <title>Sign Up</title>
 
     <link
       rel="canonical"
@@ -101,7 +101,7 @@
 
     <!-- Custom styles for this template -->
     <link
-      href="{{ url_for('static', filename='styles/signIn.css') }}"
+      href="{{ url_for('static', filename='styles/signUp.css') }}"
       rel="stylesheet"
     />
   </head>
@@ -201,7 +201,7 @@
       </ul>
     </div>
 
-    <main class="form-signin w-100 m-auto">
+    <main class="form-signup w-100 m-auto">
       <form>
         <img
           class="mb-4"
@@ -209,8 +209,17 @@
           height="40"
           width="40"
         />
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
+        <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+        
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingUsername"
+            placeholder="Username"
+          />
+          <label for="floatingUsername">UserName</label>
+        </div>
         <div class="form-floating">
           <input
             type="email"
@@ -236,7 +245,7 @@
           </label>
         </div> -->
         <button class="w-100 btn btn-lg btn-primary" type="submit">
-          Sign in
+          Sign Up
         </button>
 
       </form>
