@@ -1,26 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100" data-bs-theme="auto">
+<html lang="en" data-bs-theme="auto">
   <head>
-<!--     <script src="{{ url_for('static', filename='assests/dist/js/color-mode.js') }}"></script> -->
-
+    <!-- <script src="../assets/js/color-modes.js"></script> -->
+    
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
-    <meta name="author" content="Kanwar Jot Parkash Singh" />
-    
-        
-    <link rel="icon" type="image/png" href="https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/TMDicon.png?v=1681119981173" />
-    <title>TMD</title>
+    <meta name="generator" content="Hugo 0.111.3" />
+    <title>Profile</title>
 
     <link
       rel="canonical"
-      href="https://getbootstrap.com/docs/5.3/examples/cover/"
+      href="https://getbootstrap.com/docs/5.3/examples/jumbotron/"
     />
 
+    <!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
     <link
       href="{{ url_for('static', filename='assets/dist/css/bootstrap.min.css') }}"
       rel="stylesheet"
     />
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -95,24 +94,18 @@
         z-index: 1500;
       }
     </style>
-
-    <!-- Custom styles for this template -->
-    <link
-      href="{{ url_for('static', filename='styles/landingPage.css') }}"
-      rel="stylesheet"
-    />
   </head>
-  <body class="d-flex h-100 text-center text-bg-dark">
+  <body>
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
       <symbol id="check2" viewbox="0 0 16 16">
         <path
           d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
         />
       </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
+      <symbol id="circle-half" viewbox="0 0 16 16">
         <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
       </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <symbol id="moon-stars-fill" viewbox="0 0 16 16">
         <path
           d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
         />
@@ -198,42 +191,82 @@
       </ul>
     </div>
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
-        <div>
-          <h3 class="float-md-start mb-0">TMD</h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a
-              class="nav-link fw-bold py-1 px-0 active"
-              aria-current="page"
-              href="#"
-              >Home</a
-            >
-            <a class="nav-link fw-bold py-1 px-0" href="signin">Sign In </a>
-            <a class="nav-link fw-bold py-1 px-0" href="signup">Sign Up</a>
-          </nav>
-        </div>
-      </header>
-
-      <main class="px-3">
-        <h1>The Music Dictionary</h1>
-        <p class="lead">
-          The Music Dictionary is an ML based Music Genre Recoginising App. By
-          using Music Information Retrieval and Aanlysis we can predict the
-          Genre of the played track
-        </p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white"
-            >Learn more</a
+    <main>
+      <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom">
+          <a
+            href="/"
+            class="d-flex align-items-center text-dark text-decoration-none"
           >
-        </p>
-      </main>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="32"
+              class="me-2"
+              viewbox="0 0 118 94"
+              role="img"
+            >
+              <title>Bootstrap</title>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"
+                fill="currentColor"
+              ></path>
+            </svg>
+            <span class="fs-4">Jumbotron example</span>
+          </a>
+        </header>
 
-      <footer class="mt-auto text-white-50">
-        <p>
-          By: <a href ="https://www.linkedin.com/in/kanwarjotparkashsingh/">Kanwar Jot </a>
-        </p>
-      </footer>
-    </div>
+        <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+          <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">Custom jumbotron</h1>
+            <p class="col-md-8 fs-4">
+              Using a series of utilities, you can create this jumbotron, just
+              like the one in previous versions of Bootstrap. Check out the
+              examples below for how you can remix and restyle it to your
+              liking.
+            </p>
+            <button class="btn btn-primary btn-lg" type="button">
+              Example button
+            </button>
+          </div>
+        </div>
+
+        <div class="row align-items-md-stretch">
+          <div class="col-md-6">
+            <div class="h-100 p-5 text-bg-dark rounded-3">
+              <h2>Change the background</h2>
+              <p>
+                Swap the background-color utility and add a `.text-*` color
+                utility to mix up the jumbotron look. Then, mix and match with
+                additional component themes and more.
+              </p>
+              <button class="btn btn-outline-light" type="button">
+                Example button
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+              <h2>Add borders</h2>
+              <p>
+                Or, keep it light and add a border for some added definition to
+                the boundaries of your content. Be sure to look under the hood
+                at the source HTML here as we've adjusted the alignment and
+                sizing of both column's content for equal-height.
+              </p>
+              <button class="btn btn-outline-secondary" type="button">
+                Example button
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <footer class="pt-3 mt-4 text-body-secondary border-top">
+          &copy; 2023
+        </footer>
+      </div>
+    </main>
   </body>
 </html>

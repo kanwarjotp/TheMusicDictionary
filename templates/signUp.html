@@ -1,26 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100" data-bs-theme="auto">
+<html lang="en" data-bs-theme="auto">
   <head>
-<!--     <script src="{{ url_for('static', filename='assests/dist/js/color-mode.js') }}"></script> -->
-
+    <!--     <script src="{{ url_for('static', filename='assets/dist/js/color-mode.js') }}"></script>
+ -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
-    <meta name="author" content="Kanwar Jot Parkash Singh" />
-    
-        
-    <link rel="icon" type="image/png" href="https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/TMDicon.png?v=1681119981173" />
-    <title>TMD</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/TMDicon.png?v=1681119981173"
+    />
+    <title>Sign Up</title>
 
     <link
       rel="canonical"
-      href="https://getbootstrap.com/docs/5.3/examples/cover/"
+      href="https://getbootstrap.com/docs/5.3/examples/sign-in/"
     />
 
     <link
       href="{{ url_for('static', filename='assets/dist/css/bootstrap.min.css') }}"
       rel="stylesheet"
     />
+
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -98,21 +101,21 @@
 
     <!-- Custom styles for this template -->
     <link
-      href="{{ url_for('static', filename='styles/landingPage.css') }}"
+      href="{{ url_for('static', filename='styles/signUp.css') }}"
       rel="stylesheet"
     />
   </head>
-  <body class="d-flex h-100 text-center text-bg-dark">
+  <body class="text-center">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
       <symbol id="check2" viewbox="0 0 16 16">
         <path
           d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"
         />
       </symbol>
-      <symbol id="circle-half" viewBox="0 0 16 16">
+      <symbol id="circle-half" viewbox="0 0 16 16">
         <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
       </symbol>
-      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+      <symbol id="moon-stars-fill" viewbox="0 0 16 16">
         <path
           d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"
         />
@@ -198,42 +201,59 @@
       </ul>
     </div>
 
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="mb-auto">
-        <div>
-          <h3 class="float-md-start mb-0">TMD</h3>
-          <nav class="nav nav-masthead justify-content-center float-md-end">
-            <a
-              class="nav-link fw-bold py-1 px-0 active"
-              aria-current="page"
-              href="#"
-              >Home</a
-            >
-            <a class="nav-link fw-bold py-1 px-0" href="signin">Sign In </a>
-            <a class="nav-link fw-bold py-1 px-0" href="signup">Sign Up</a>
-          </nav>
+    <main class="form-signup w-100 m-auto">
+      <form action="/signUpValidation" method="POST">
+        <img
+          class="mb-4"
+          src="https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/TMDicon.png?v=1681119981173"
+          height="40"
+          width="40"
+        />
+        <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+
+        <div class="form-floating">
+          <input
+            type="text"
+            class="form-control"
+            id="floatingUsername"
+            placeholder="Username"
+            name="name"
+            required
+          />
+          <label for="floatingUsername">UserName</label>
         </div>
-      </header>
+        <div class="form-floating">
+          <input
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+            name="email"
+            required
+          />
+          <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <label for="floatingPassword">Password</label>
+        </div>
 
-      <main class="px-3">
-        <h1>The Music Dictionary</h1>
-        <p class="lead">
-          The Music Dictionary is an ML based Music Genre Recoginising App. By
-          using Music Information Retrieval and Aanlysis we can predict the
-          Genre of the played track
-        </p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white"
-            >Learn more</a
-          >
-        </p>
-      </main>
-
-      <footer class="mt-auto text-white-50">
-        <p>
-          By: <a href ="https://www.linkedin.com/in/kanwarjotparkashsingh/">Kanwar Jot </a>
-        </p>
-      </footer>
-    </div>
+        <!--         <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me" /> Remember me
+          </label>
+        </div> -->
+        <button class="w-100 btn btn-lg btn-primary" type="submit">
+          Sign Up
+        </button>
+      </form>
+    </main>
   </body>
 </html>

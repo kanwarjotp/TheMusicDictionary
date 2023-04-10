@@ -1,4 +1,4 @@
 flask
 numpy
-sqlite3
 pandas
+flask-bcrypt
