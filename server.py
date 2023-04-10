@@ -23,7 +23,7 @@ def signUp():
 
 # Add Credenttials to Database and redirect to profile page
 @app.route("/signUpValidation", methods=["POST"])
-def signupValidation():
+def signUpValidation():
   
   # getting the form values
   username = request.form.get('name')
@@ -31,7 +31,7 @@ def signupValidation():
   password = request.form.get('password')
   
   # encrypt passwords using bcrypt flask-bcrypt, require python3 to work
-  pw_hash = bcrypt.generate_password_hash(password)
+  pw_hash = bcrypt.generate_password_hash(password).decode('utf-8')
   
   con = sqlite3.connect('accounts')
   con.row_factory = sqlite3.Row
@@ -49,11 +49,37 @@ def signupValidation():
 
 # Validate Credentials from Database for Login
 @app.route("/signInValidation", methods=["POST"])
-def signinValidation():
-  pass
+def signInValidation():
+  
+  mail = request.form.get('mail')
+  password = request.form.get('password')
+  
+  con = sqlite3.connect("accounts")
+  con.row_factory = sqlite3.Row
 
-  # after creating the session redirect to the profile page
-  return redirect(url_for("profilePage"))
+  cur = con.cursor()
+
+  # login validation: check if email is present in db
+  cmd = 'SELECT * FROM users WHERE mail == "{0}"'.format(mail)
+  cur.execute(cmd)
+  rows = cur.fetchall()
+  con.close()
+
+  if rows == []:
+    # no user with sepcified credentials
+    return redirect(url_for('signUp'))
+      
+  for entry in rows:
+    username = entry['username']
+    stored_hash = entry['password']
+    
+  # check password
+  if bcrypt.check_password_hash(stored_hash, password): # returns True
+    # session["userName"] = userName
+    return redirect(url_for('profilePage'))
+  else:
+    return redirect(url_for('signIn'))
+    
 
 # Profile Page
 @app.route("/profile", methods=["GET"])
