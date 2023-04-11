@@ -10,7 +10,6 @@ app.config.update(SECRET_KEY="themusicdictionary") # setting the secret key for 
 
 @app.route('/')
 def hello():
-  
   return render_template("landingPage.html")
 
 # the sign in page
@@ -109,6 +108,15 @@ def profilePage():
   
   return render_template("profile.html", data=session)
 
+
+# logout function
+@app.route('/logout')
+def logout():
+  session.pop("username")
+  session.pop("userId")
+  return redirect(url_for('hello'))
+
+                  
 if __name__ == "__main__":
   app.run(debug=True)
      
