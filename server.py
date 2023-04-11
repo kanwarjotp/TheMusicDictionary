@@ -1,14 +1,15 @@
-from flask import Flask, render_template, url_for, redirect, request
+from flask import Flask, render_template, url_for, redirect, request, session
 from flask_bcrypt import Bcrypt
 import sqlite3
 
+
 app = Flask(__name__)
 bcrypt = Bcrypt(app) # an encryption lib
+app.config.update(SECRET_KEY="themusicdictionary") # setting the secret key for the session
 
 
 @app.route('/')
 def hello():
-  
   return render_template("landingPage.html")
 
 # the sign in page
@@ -23,15 +24,15 @@ def signUp():
 
 # Add Credenttials to Database and redirect to profile page
 @app.route("/signUpValidation", methods=["POST"])
-def signupValidation():
+def signUpValidation():
   
   # getting the form values
   username = request.form.get('name')
-  mail = request.form.get('email')
+  mail = request.form.get('mail')
   password = request.form.get('password')
   
-  # encrypt passwords using bcrypt flask-bcrypt, require python3 to work
-  pw_hash = bcrypt.generate_password_hash(password)
+  # encrypt passwords using bcrypt flask-bcrypt, requires python3 to work
+  pw_hash = bcrypt.generate_password_hash(password).decode('utf-8')
   
   con = sqlite3.connect('accounts')
   con.row_factory = sqlite3.Row
@@ -41,26 +42,82 @@ def signupValidation():
   cur.execute(cmd)
   
   con.commit()
+  
+  # exgtracting the userid from the database.
+  cmd = 'SELECT id from users where mail = "{0}"'.format(mail)
+  cur.execute(cmd)
+  
+  rows = cur.fetchall()    
+  
   con.close()
 
-  # TODO: after creating the session redirect to the profile page
-  return redirect(url_for("profilePage"))
+  for entry in rows:
+    userId = entry['id']
+  
+  # creating a session
+  session["username"] = username
+  session["userId"] = userId
+  
+  # redirect to the profile page  
+  return redirect(url_for("profilePage", user=username))
 
 
 # Validate Credentials from Database for Login
 @app.route("/signInValidation", methods=["POST"])
-def signinValidation():
-  pass
+def signInValidation():
+  
+  mail = request.form.get('mail')
+  password = request.form.get('password')
+  
+  con = sqlite3.connect("accounts")
+  con.row_factory = sqlite3.Row
 
-  # after creating the session redirect to the profile page
-  return redirect(url_for("profilePage"))
+  cur = con.cursor()
+
+  # login validation: check if email is present in db
+  cmd = 'SELECT * FROM users WHERE mail == "{0}"'.format(mail)
+  cur.execute(cmd)
+  rows = cur.fetchall()
+  con.close()
+
+  if rows == []:
+    # no user with sepcified credentials
+    return redirect(url_for('signUp'))
+      
+  for entry in rows:
+    username = entry['username']
+    stored_hash = entry['password']
+    userId = entry['id']
+    
+  # check password
+  if bcrypt.check_password_hash(stored_hash, password): # returns True
+    # create a session for the user
+    session["username"] = username
+    session["userId"] = userId
+    
+    # redirect to profile page
+    return redirect(url_for('profilePage', user=username))
+  else:
+    return redirect(url_for('signIn'))
+    
 
 # Profile Page
 @app.route("/profile", methods=["GET"])
 def profilePage():
-  return render_template("profile.html")
+  username = request.args['user']
+  
+  return render_template("profile.html", data=session)
 
+
+# logout function
+@app.route('/logout')
+def logout():
+  session.pop("username")
+  session.pop("userId")
+  return redirect(url_for('hello'))
+
+                  
 if __name__ == "__main__":
-  app.run()
+  app.run(debug=True)
      
   
