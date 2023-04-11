@@ -16,11 +16,21 @@ def hello():
 # the sign in page
 @app.route("/signin")
 def signIn():
+  
+  # if an already signed in user tries to sign in again
+  if session != {}:
+    return redirect(url_for('profilePage'))
+  
   return render_template("signIn.html")
                         
 # the sign up page
 @app.route("/signup")
 def signUp():
+    
+  # if an already signed in user tries to sign up
+  if session != {}:
+    return redirect(url_for('profilePage'))
+  
   return render_template("signUp.html")
 
 # Add Credentials to Database and redirect to profile page
@@ -97,7 +107,7 @@ def signInValidation():
     session["userId"] = userId
     
     # redirect to profile page
-    return redirect(url_for('profilePage', user=username))
+    return redirect(url_for('profilePage'))
   else:
     return redirect(url_for('signIn'))
     
@@ -105,7 +115,10 @@ def signInValidation():
 # Profile Page
 @app.route("/profile", methods=["GET"])
 def profilePage():
-  username = request.args['user']
+  
+  # if someone tries to acess a profile page without sigining in
+  if session == {}:
+    return redirect(url_for('hello'))
   
   return render_template("profile.html", data=session)
 
