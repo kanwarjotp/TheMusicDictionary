@@ -10,7 +10,8 @@ app.config.update(SECRET_KEY="themusicdictionary") # setting the secret key for 
 
 @app.route('/')
 def hello():
-  return render_template("landingPage.html")
+  # passing the session data to change the display for a signed in user
+  return render_template("landingPage.html", data=session)
 
 # the sign in page
 @app.route("/signin")
@@ -22,7 +23,7 @@ def signIn():
 def signUp():
   return render_template("signUp.html")
 
-# Add Credentials to Database and redirect to profile page
+# Add Credenttials to Database and redirect to profile page
 @app.route("/signUpValidation", methods=["POST"])
 def signUpValidation():
   
@@ -37,14 +38,13 @@ def signUpValidation():
   con = sqlite3.connect('accounts')
   con.row_factory = sqlite3.Row
   
-  #add user to database
   cur = con.cursor()
   cmd = 'INSERT INTO users (username, mail, password) VALUES("{0}", "{1}", "{2}")'.format( username, mail, pw_hash)
   cur.execute(cmd)
   
   con.commit()
   
-  # extracting the userid from the database.
+  # exgtracting the userid from the database.
   cmd = 'SELECT id from users where mail = "{0}"'.format(mail)
   cur.execute(cmd)
   
@@ -119,6 +119,6 @@ def logout():
 
                   
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run(debug=False)
      
   
