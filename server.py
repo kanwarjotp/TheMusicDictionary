@@ -23,7 +23,7 @@ def signIn():
 def signUp():
   return render_template("signUp.html")
 
-# Add Credenttials to Database and redirect to profile page
+# Add Credentials to Database and redirect to profile page
 @app.route("/signUpValidation", methods=["POST"])
 def signUpValidation():
   
@@ -44,7 +44,7 @@ def signUpValidation():
   
   con.commit()
   
-  # exgtracting the userid from the database.
+  # extracting the userid from the database.
   cmd = 'SELECT id from users where mail = "{0}"'.format(mail)
   cur.execute(cmd)
   
