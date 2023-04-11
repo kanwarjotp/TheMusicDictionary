@@ -30,7 +30,7 @@ def signUpValidation():
   mail = request.form.get('email')
   password = request.form.get('password')
   
-  # encrypt passwords using bcrypt flask-bcrypt, require python3 to work
+  # encrypt passwords using bcrypt flask-bcrypt, requires python3 to work
   pw_hash = bcrypt.generate_password_hash(password).decode('utf-8')
   
   con = sqlite3.connect('accounts')
