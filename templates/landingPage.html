@@ -5,7 +5,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="" />
+    <meta name="description" content="an ml based music genre classifier" />
     <meta name="author" content="Kanwar Jot Parkash Singh" />
 
     <link
@@ -107,6 +107,7 @@
   </head>
   <body class="d-flex h-100 text-center text-bg-dark">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      {% if data == {} %}
       <header class="mb-auto">
         <div>
           <h3 class="float-md-start mb-0">TMD</h3>
@@ -122,12 +123,29 @@
           </nav>
         </div>
       </header>
+      {% else %}
+          <header class="mb-auto">
+            <div>
+              <h3 class="float-md-start mb-0">TMD</h3>
+              <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a
+                  class="nav-link fw-bold py-1 px-0 active"
+                  aria-current="page"
+                  href="#"
+                  >Home</a
+                >
+                <a class="nav-link fw-bold py-1 px-0" href="profile?user={{ data['username'] }}">{{ data['username']}} </a>
+                <a class="nav-link fw-bold py-1 px-0" href="logout">Log Out</a>
+              </nav>
+            </div>
+          </header>
+      {% endif %}
 
       <main class="px-3">
         <h1>The Music Dictionary</h1>
         <p class="lead">
           The Music Dictionary is an ML based Music Genre Recoginising App. By
-          using Music Information Retrieval and Aanlysis we can predict the
+          using Music Information Retrieval and Analysis we can predict the
           Genre of the played track
         </p>
         <p class="lead">
