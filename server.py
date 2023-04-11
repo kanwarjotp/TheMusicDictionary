@@ -22,7 +22,7 @@ def signIn():
 def signUp():
   return render_template("signUp.html")
 
-# Add Credenttials to Database and redirect to profile page
+# Add Credentials to Database and redirect to profile page
 @app.route("/signUpValidation", methods=["POST"])
 def signUpValidation():
   
@@ -37,13 +37,14 @@ def signUpValidation():
   con = sqlite3.connect('accounts')
   con.row_factory = sqlite3.Row
   
+  #add user to database
   cur = con.cursor()
   cmd = 'INSERT INTO users (username, mail, password) VALUES("{0}", "{1}", "{2}")'.format( username, mail, pw_hash)
   cur.execute(cmd)
   
   con.commit()
   
-  # exgtracting the userid from the database.
+  # extracting the userid from the database.
   cmd = 'SELECT id from users where mail = "{0}"'.format(mail)
   cur.execute(cmd)
   
