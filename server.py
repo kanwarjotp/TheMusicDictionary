@@ -116,7 +116,7 @@ def signInValidation():
 @app.route("/profile", methods=["GET"])
 def profilePage():
   
-  # if someone tries to access a profile page without sigining in
+  # if someone tries to acess a profile page without sigining in
   if session == {}:
     return redirect(url_for('hello'))
   
