@@ -79,7 +79,6 @@
         white-space: nowrap;
         -webkit-overflow-scrolling: touch;
       }
-      
 
       .btn-bd-primary {
         --bd-violet-bg: #712cf9;
@@ -108,21 +107,20 @@
     />
   </head>
   <body>
-      <header class="mb-auto ">
-        <div>
-<!--           <h3 class="float-md-start mb-0">TMD</h3> -->
-         <nav class="nav nav-masthead profile-nav">
-            <a
-              class="nav-link fw-bold py-1 px-0 "
-              aria-current="page"
-              href="/"
-              >Home</a
-            >
-            <a class="nav-link fw-bold py-1 px-0 " href="logout">Log Out </a>
-<!--             <a class="nav-link fw-bold py-1 px-0" href="editProfile">Edit Profile</a> -->
-          </nav>
-        </div>
-      </header>
+    <!--   force reload on back button   -->
+    <script src="{{url_for('static', filename='scripts/forceReload.js')}}"></script>
+    <header class="mb-auto">
+      <div>
+        <!--           <h3 class="float-md-start mb-0">TMD</h3> -->
+        <nav class="nav nav-masthead profile-nav">
+          <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/"
+            >Home</a
+          >
+          <a class="nav-link fw-bold py-1 px-0" href="logout">Log Out </a>
+          <!--             <a class="nav-link fw-bold py-1 px-0" href="editProfile">Edit Profile</a> -->
+        </nav>
+      </div>
+    </header>
     <main>
       <div class="container py-4">
         <header class="pb-3 mb-4 border-bottom">
