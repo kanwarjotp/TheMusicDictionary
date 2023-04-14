@@ -4,8 +4,7 @@ The Music Dictionary TODO list.
 
 ### Todo
 
-- [ ] Fix the Back button, session ignorance bug. 12-4-2023
-- [ ] Look up what liceneses are available and there info.
+- [ ] Fix the Browser Back button, session ignorance bug. 12-4-2023
 
 ### In Progress
 
