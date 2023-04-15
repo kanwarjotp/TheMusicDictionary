@@ -46,3 +46,8 @@ body {
   color: #fff;
   border-bottom-color: #fff;
 }
+
+#footer {
+  position: absolute;
+  margin-bottom:0;
+}
