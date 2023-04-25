@@ -130,7 +130,3 @@ dmypy.json
 
 # Sqlite History
 .sqlite_history
-
-#wav files for audio fingerprinting
-wav-files
-.wav

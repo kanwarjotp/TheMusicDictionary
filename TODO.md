@@ -10,8 +10,9 @@ The Music Dictionary TODO list.
 ### In Progress
 
 - [ ] Work on Github Repo [TheMusicDictionary]
-- [ ] Create Recorder on Profile Page
+
 
 ### Done ✓
 
 - [x] Session Variables direct webpage behaviour
+- [x] Create Recorder on Profile Page
