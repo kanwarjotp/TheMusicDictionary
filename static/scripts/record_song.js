@@ -35,9 +35,15 @@ async function getMedia(constraints) {
     console.log(event.data)
     const rec_sample = new Blob([event.data], {'type': 'audio/wav'})
     const sample_url = URL.createObjectURL(rec_sample)
-    
+    console.log(sample_url)
     const rec_audio = new Audio(sample_url)
     rec_audio.play()
+
+    const send_req = new XMLHttpRequest()
+    var save_form = new FormData()
+    save_form.append("sample_data", rec_sample, "rec_sample")
+    send_req.open("POST", "/process_sample", true)
+    send_req.send(save_form)
     
   }
 

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, redirect, request, session
 from flask_bcrypt import Bcrypt
 import sqlite3
+import wave
 
 
 app = Flask(__name__)
@@ -113,7 +114,7 @@ def signInValidation():
     
 
 # Profile Page
-@app.route("/profile", methods=["GET"])
+@app.route("/profile", methods=["GET", "POST"])
 def profilePage():
   
   # if someone tries to acess a profile page without sigining in
@@ -122,6 +123,16 @@ def profilePage():
   
   return render_template("profile.html", data=session)
 
+# Process sample sent to server by the recorder
+@app.route("/process_sample", methods=["POST"])
+def process_sample():
+  recorded_sample = request.files["sample_data"]
+  
+  with open("rec_sample.wav", "wb") as rec:
+    recorded_sample.save(rec)
+  
+  return redirect(url_for("profilePage"))
+  
 
 # logout function
 @app.route('/logout')
@@ -130,8 +141,9 @@ def logout():
   session.pop("userId")
   return redirect(url_for('hello'))
 
+
                   
 if __name__ == "__main__":
   app.run(debug=True)
      
-  
+
