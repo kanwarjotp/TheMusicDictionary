@@ -130,6 +130,5 @@ dmypy.json
 
 # Sqlite History
 .sqlite_history
-rec_sample.wav
-rec_output.wav
+**.wav
 test.py
