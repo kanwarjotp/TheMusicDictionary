@@ -1,7 +1,7 @@
 from flask import Flask, render_template, url_for, redirect, request, session
 from flask_bcrypt import Bcrypt
 import sqlite3
-import wave
+import subprocess
 
 
 app = Flask(__name__)
@@ -128,11 +128,14 @@ def profilePage():
 def process_sample():
   recorded_sample = request.files["sample_data"]
   
+  # saving the recording sample to disk
   with open("rec_sample.wav", "wb") as rec:
     recorded_sample.save(rec)
   
-  return redirect(url_for("profilePage"))
+  # converting the saved file to RIFF/RIFX
+  subprocess.run(["powershell", "ffmpeg -i rec_sample.wav rec_output.wav"], shell=True)
   
+  return redirect(url_for("profilePage"))
 
 # logout function
 @app.route('/logout')
@@ -140,6 +143,12 @@ def logout():
   session.pop("username")
   session.pop("userId")
   return redirect(url_for('hello'))
+
+
+def recognition_funtion(address_of_wav_file: str):
+  pass
+  
+
 
 
                   
