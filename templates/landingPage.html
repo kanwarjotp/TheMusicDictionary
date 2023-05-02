@@ -5,7 +5,7 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="an ml based music genre classifier" />
+    <meta name="description" content="a music classifier" />
     <meta name="author" content="Kanwar Jot Parkash Singh" />
 
     <link
@@ -14,11 +14,6 @@
       href="https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/TMDicon.png?v=1681119981173"
     />
     <title>TMD</title>
-
-    <link
-      rel="canonical"
-      href="https://getbootstrap.com/docs/5.3/examples/cover/"
-    />
 
     <link
       href="{{ url_for('static', filename='assets/dist/css/bootstrap.min.css') }}"
@@ -144,22 +139,36 @@
       <main class="px-3">
         <h1>The Music Dictionary</h1>
         <p class="lead">
-          The Music Dictionary is an ML based Music Genre Recoginising App. By
-          using Music Information Retrieval and Analysis we can predict the
-          Genre of the played track
+          The Music Dictionary is a Music Recognition App. By
+          using Audio Fingerprinting we are able to uniquely identify the song.
         </p>
         <p class="lead">
-          <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white"
-            >Learn more</a
-          >
+          <a 
+          class="btn btn-primary btn-lg btn-light fw-bold border-white bg-white"
+          data-toggle="collapse"
+          href="#learn-more-info"
+          role="button"
+          aria-expanded="false"
+          aria-controls="collapseExample">
+            learn more
+          </a>
         </p>
+        <div id="learn-more-info" class="collapse"> 
+          <!-- TODO: this doesn't work!! -->
+          <div class="card card-body">
+            Audio Fingerprinting effectively create a "fingerprint" of a song. This is the Working of the App. The principles behind this are the Fourier Transforms, Basic Music Thoery etc. This website and the underlying implementation would never have been possible without the use of the Music Information Retrieval and Analysis.You can explore more about the project and at its 
+            <a href="https://github.com/kanwarjotp/TheMusicDictionary">
+              Github.
+            </a> 
+          </div>
+        </div>
       </main>
 
       <footer class="mt-auto text-white-50">
         <p>
           &copy 2023
-          <a href="https://www.linkedin.com/in/kanwarjotparkashsingh/"
-            >Kanwar Jot Parkash Singh
+          <a href="https://www.linkedin.com/in/kanwarjotparkashsingh/">
+            Kanwar Jot Parkash Singh
           </a>
         </p>
       </footer>

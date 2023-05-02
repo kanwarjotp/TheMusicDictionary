@@ -130,3 +130,5 @@ dmypy.json
 
 # Sqlite History
 .sqlite_history
+**.wav
+test.py

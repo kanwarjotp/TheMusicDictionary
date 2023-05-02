@@ -146,9 +146,10 @@
           <div class="container-fluid py-5">
             <h1 class="display-5 fw-bold">Recognise Music</h1>
             <p class="col-md-8 fs-4">Capabilities on the Way. Stay Put</p>
-            <button class="btn btn-primary btn-lg" type="button">
-              Learn More
+            <button class="btn btn-primary btn-lg" type="button" onclick="getMedia()">
+              click to record
             </button>
+            <div id="dev_output"></div>
           </div>
         </div>
 
@@ -178,5 +179,6 @@
         </footer>
       </div>
     </main>
+    <script src="{{url_for('static', filename='scripts/record_song.js')}}"></script>
   </body>
 </html>
