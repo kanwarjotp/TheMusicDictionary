@@ -3,7 +3,6 @@ from flask_bcrypt import Bcrypt
 import sqlite3
 import subprocess
 
-
 app = Flask(__name__)
 bcrypt = Bcrypt(app) # an encryption lib
 app.config.update(SECRET_KEY="themusicdictionary") # setting the secret key for the session
