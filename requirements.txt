@@ -2,3 +2,6 @@ flask
 numpy
 pandas
 flask-bcrypt
+scipy
+skimage
+hashlib
