@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, redirect, request, session
 from flask_bcrypt import Bcrypt
 import sqlite3
 import subprocess
+import logic.run as run # the py module for music recognition
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app) # an encryption lib
@@ -116,7 +117,7 @@ def signInValidation():
 @app.route("/profile", methods=["GET", "POST"])
 def profilePage():
   
-  # if someone tries to acess a profile page without sigining in
+  # if someone tries to access a profile page without sigining in
   if session == {}:
     return redirect(url_for('hello'))
   
@@ -134,7 +135,11 @@ def process_sample():
   # converting the saved file to RIFF/RIFX
   subprocess.run(["powershell", "ffmpeg -i rec_sample.wav rec_output.wav"], shell=True)
   
+  session['song_prediction'] = run.engine()
+  print(session['song_prediction'])
+  
   return redirect(url_for("profilePage"))
+
 
 # logout function
 @app.route('/logout')
@@ -142,11 +147,6 @@ def logout():
   session.pop("username")
   session.pop("userId")
   return redirect(url_for('hello'))
-
-
-def recognition_funtion(address_of_wav_file: str):
-  pass
-  
 
 
 
