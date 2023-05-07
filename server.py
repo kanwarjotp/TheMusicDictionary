@@ -1,11 +1,23 @@
 from flask import Flask, render_template, url_for, redirect, request, session
+from flask_session import Session
 from flask_bcrypt import Bcrypt
 import sqlite3
 import subprocess
 
+import logic.run as run # the py module for music recognition
+import config
+
 app = Flask(__name__)
-bcrypt = Bcrypt(app) # an encryption lib
-app.config.update(SECRET_KEY="themusicdictionary") # setting the secret key for the session
+bcrypt = Bcrypt(app) # an encryption lib to encrypt the passwords
+app.secret_key= config.SECRET_KEY
+app.config.update(
+  PERMANENT_SESSION_LIFETIME = config.PERMANENT_SESSION_LIFETIME,
+  SESSION_PERMANENT = False,
+  SESSSION_COOKIE_NAME = "tmduser",
+  SESSION_TYPE = "filesystem"
+) # setting the secret key for the session
+
+Session(app) # creating the flask session
 
 
 @app.route('/')
@@ -99,13 +111,15 @@ def signInValidation():
     username = entry['username']
     stored_hash = entry['password']
     userId = entry['id']
-    
+
   # check password
   if bcrypt.check_password_hash(stored_hash, password): # returns True
     # create a session for the user
+
     session["username"] = username
     session["userId"] = userId
-    
+
+
     # redirect to profile page
     return redirect(url_for('profilePage'))
   else:
@@ -116,7 +130,7 @@ def signInValidation():
 @app.route("/profile", methods=["GET", "POST"])
 def profilePage():
   
-  # if someone tries to acess a profile page without sigining in
+  # if someone tries to access a profile page without sigining in
   if session == {}:
     return redirect(url_for('hello'))
   
@@ -132,21 +146,23 @@ def process_sample():
     recorded_sample.save(rec)
   
   # converting the saved file to RIFF/RIFX
-  subprocess.run(["powershell", "ffmpeg -i rec_sample.wav rec_output.wav"], shell=True)
+  subprocess.run(["powershell", "ffmpeg -y -i rec_sample.wav rec_output.wav"], shell=True)
+  
+  session['song_prediction'] = run.engine()
+  print(session['song_prediction'])
   
   return redirect(url_for("profilePage"))
+
 
 # logout function
 @app.route('/logout')
 def logout():
-  session.pop("username")
-  session.pop("userId")
-  return redirect(url_for('hello'))
-
-
-def recognition_funtion(address_of_wav_file: str):
-  pass
+  session.pop("username", None)
+  session.pop("userId", None)
+  session.pop("song_prediction", None)
   
+  
+  return redirect(url_for('hello'))
 
 
 

@@ -132,3 +132,9 @@ dmypy.json
 .sqlite_history
 **.wav
 test.py
+
+# config file for flask server
+config.py
+
+# flask-session files
+flask_session

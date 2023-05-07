@@ -1,4 +1,11 @@
 flask
+Flask-Session
 numpy
 pandas
 flask-bcrypt
+scipy
+skimage
+hashlib
+ffmpeg
+subprocess
+datetime
