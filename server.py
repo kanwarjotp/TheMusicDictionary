@@ -133,7 +133,7 @@ def process_sample():
     recorded_sample.save(rec)
   
   # converting the saved file to RIFF/RIFX
-  subprocess.run(["powershell", "ffmpeg -i rec_sample.wav rec_output.wav"], shell=True)
+  subprocess.run(["powershell", "ffmpeg -y -i rec_sample.wav rec_output.wav"], shell=True)
   
   session['song_prediction'] = run.engine()
   print(session['song_prediction'])
