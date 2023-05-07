@@ -1,6 +1,10 @@
 html,
 body {
   height: 100%;
+
+  /* in case the bg-image doesn't load */
+  background-image: linear-gradient(black, lightblue);
+  
   background-image: url("https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/bgImage.jpg?v=1681119703717");
   color: white;
 }
