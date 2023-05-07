@@ -1,12 +1,23 @@
 from flask import Flask, render_template, url_for, redirect, request, session
+from flask_session import Session
 from flask_bcrypt import Bcrypt
 import sqlite3
 import subprocess
+
 import logic.run as run # the py module for music recognition
+import config
 
 app = Flask(__name__)
-bcrypt = Bcrypt(app) # an encryption lib
-app.config.update(SECRET_KEY="themusicdictionary") # setting the secret key for the session
+bcrypt = Bcrypt(app) # an encryption lib to encrypt the passwords
+app.secret_key= config.SECRET_KEY
+app.config.update(
+  PERMANENT_SESSION_LIFETIME = config.PERMANENT_SESSION_LIFETIME,
+  SESSION_PERMANENT = False,
+  SESSSION_COOKIE_NAME = "tmduser",
+  SESSION_TYPE = "filesystem"
+) # setting the secret key for the session
+
+Session(app) # creating the flask session
 
 
 @app.route('/')
@@ -100,13 +111,15 @@ def signInValidation():
     username = entry['username']
     stored_hash = entry['password']
     userId = entry['id']
-    
+
   # check password
   if bcrypt.check_password_hash(stored_hash, password): # returns True
     # create a session for the user
+
     session["username"] = username
     session["userId"] = userId
-    
+
+
     # redirect to profile page
     return redirect(url_for('profilePage'))
   else:
@@ -144,8 +157,11 @@ def process_sample():
 # logout function
 @app.route('/logout')
 def logout():
-  session.pop("username")
-  session.pop("userId")
+  session.pop("username", None)
+  session.pop("userId", None)
+  session.pop("song_prediction", None)
+  
+  
   return redirect(url_for('hello'))
 
 
