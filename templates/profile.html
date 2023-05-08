@@ -150,6 +150,7 @@
               click to record
             </button>
             <div id="dev_output">
+              <span id="prediction"></span>
               Prediction: {{ data['song_prediction'] }}
             </div>
           </div>
@@ -181,6 +182,7 @@
         </footer>
       </div>
     </main>
-    <script src="{{url_for('static', filename='scripts/record_song.js')}}"></script>
+    <script src="{{url_for('static', filename='scripts/record_song.js')}}"></script>    
+    <script src="{{url_for('static', filename='scripts/profile.js')}}"></script>
   </body>
 </html>

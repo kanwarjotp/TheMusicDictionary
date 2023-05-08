@@ -136,5 +136,9 @@ test.py
 # config file for flask server
 config.py
 
+
 # flask-session files
 flask_session
+
+# the config files for logic
+logic/config.py
