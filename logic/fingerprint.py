@@ -21,7 +21,6 @@ class Fingerprint:
         self,
         song_address: str,
         song_id: int = 0,
-        force_one_chnl: bool = True
         ):  # when song_id = 0, indicates a user's recording
         """
 
@@ -32,7 +31,7 @@ class Fingerprint:
         self._song_id = song_id
         self._song = song_address
         self._wav_info = {}
-        self._mono = force_one_chnl
+        self._mono = False
         self._spectrum = {}
         self._coordinates = []
         self._peaks = []
@@ -51,7 +50,7 @@ class Fingerprint:
         hashes_total = []
         num_hashes_gen = 0
 
-        if len(self._wav_info['song_data'].shape) != 1 and not self._mono:
+        if len(self._wav_info['song_data'].shape) != 1:
             channels = self._wav_info['song_data'].shape[1]
         else:
             # in case of a Single channel:
