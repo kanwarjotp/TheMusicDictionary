@@ -4,7 +4,7 @@ from flask_bcrypt import Bcrypt
 import sqlite3
 import subprocess
 
-import logic.run as run # the py module for music recognition
+import logic.run as run_engine # the py module for music recognition
 import config
 
 app = Flask(__name__)
@@ -148,7 +148,7 @@ def process_sample():
   # converting the saved file to RIFF/RIFX
   subprocess.run(["powershell", "ffmpeg -y -i rec_sample.wav rec_output.wav"], shell=True)
   
-  session['song_prediction'] = run.engine()
+  session['song_prediction'] = run_engine.engine()
   print(session['song_prediction'])
   
   return redirect(url_for("profilePage"))
@@ -161,10 +161,7 @@ def logout():
   session.pop("userId", None)
   session.pop("song_prediction", None)
   
-  
   return redirect(url_for('hello'))
-
-
 
                   
 if __name__ == "__main__":
