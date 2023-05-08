@@ -26,17 +26,26 @@ class SQLConnection:
         '''
     }
 
-    def __init__(self):
-        try:
-            self._cnx = mysql.connector.connect(**config.cnxn_conf)
+    def __init__(self, build_schema: str = None):
+        if build_schema is not None: # a new schema is to be created
+            self._cnx = mysql.connector.connect(**config.first_cnxn)
             self._cur = self._cnx.cursor()
-        except mysql.connector.Error as err:
-            if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
-                print("Something is wrong with your user name or password")
-            elif err.errno == errorcode.ER_BAD_DB_ERROR:
-                print("Database does not exist")
-            else:
-                raise err
+            
+            # creating the specified database
+            self.create_database(build_schema)
+        else:
+
+            try:
+                self._cnx = mysql.connector.connect(**config.cnxn_conf)
+                self._cur = self._cnx.cursor()
+            except mysql.connector.Error as err:
+                if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+                    print("Something is wrong with your user name or password")
+                elif err.errno == errorcode.ER_BAD_DB_ERROR:
+                    print("Database does not exist")
+                else:
+                    raise err
+            
 
     def close_cnx(self):
         self._cnx.close()

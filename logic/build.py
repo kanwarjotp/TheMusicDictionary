@@ -1,4 +1,5 @@
 import os
+
 import logic.config as config
 import logic.sql_database as db
 import logic.fingerprint as fingerprint
@@ -46,27 +47,35 @@ def add_song_to_app(name: str, song_address: str):
               format(name, song_id, num_fingerprints, dup_perc))
     else:
         print("Song already present in database")
+    database_cnxn.close_cnx()
 
 
-def build_app():
-    # deleting pre-existing database
-    if config.are_you_sure:
-        pass
-    else:
-        raise ValueError("This action will delete the existing database. Please make necessary check before re "
-                         "running.")
-    db_conn = db.SQLConnection()
-    db_conn.delete_database(config.test_schema)
-    db_conn.create_database(config.test_schema)
+def build_app(first_build: bool = False, schema_to_use: str = None):
+    if first_build:
+        # building the database for the first time.
+        first_conn = db.SQLConnection(build_schema=schema_to_use)
+        first_conn.close_cnx()
+    else:  # a build call after the primary database has already been built 
+        if config.are_you_sure:
+            pass # the already present database will be deleted.
+        else:
+            raise ValueError("This action will delete the existing database. Please make necessary checks before re-running.")
+        
+        db_conn = db.SQLConnection()
+        db_conn.delete_database(schema_to_use)
+        db_conn.create_database(schema_to_use)
+        db_conn.close_cnx()
+        
 
-    new_con = db.SQLConnection()
-    new_con.create_tables()
+    new_conn = db.SQLConnection()
+    new_conn.create_tables()
 
     song_info_dict = get_files(config.files_folder)
 
-    for key in list(song_info_dict.keys())[:2]:
+    for key in list(song_info_dict.keys())[:1]:
         print(key, song_info_dict[key])
 
         add_song_to_app(key, song_info_dict[key])
-
-
+        
+    new_conn.close_cnx()          
+    
