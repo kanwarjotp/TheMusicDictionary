@@ -1,8 +1,8 @@
 # The Music Dictionary
 
-A Music Recoginition Web Application, which works by utilizing Audio Fingerprinting. *In a contnious state of Development*
+A Music Recoginition Web Application, which works by utilizing Audio Fingerprinting. *In a continous state of Development*
 
-The Project is still in development and may not work correctly or unexpectedly, feel free to raise an Issue or a PR to point out a problem or suggest a fix. All contribution are welcome.
+The Project is still in development and may not work correctly or unexpectedly, please feel free to raise an Issue or a PR to point out a problem or suggest a fix. All contribution are welcome.
 
 
 ## Installation on a Local Machine
