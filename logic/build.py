@@ -1,5 +1,5 @@
 import os
-import config
+import logic.config as config
 import logic.sql_database as db
 import logic.fingerprint as fingerprint
 

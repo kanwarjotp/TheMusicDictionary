@@ -27,8 +27,8 @@ async function getMedia(constraints) {
     }
   }
 
-  function handleRecData(event){
-    alert("it worked!!")
+//   using AJAX to send the BLOB data to the backend.
+function handleRecData(event){
     console.log(event.data)
     const rec_sample = new Blob([event.data], {'type': 'audio/wav'})
     const sample_url = URL.createObjectURL(rec_sample)
@@ -41,7 +41,4 @@ async function getMedia(constraints) {
     save_form.append("sample_data", rec_sample, "rec_sample")
     send_req.open("POST", "/process_sample", true)
     send_req.send(save_form)
-    
-  }
-
-  
+}

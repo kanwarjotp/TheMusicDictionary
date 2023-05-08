@@ -12,8 +12,7 @@ def look_for_matches(fingerprints_of_sample=None):
     if fingerprints_of_sample is None:
         fingerprints_of_sample = []
     if not fingerprints_of_sample:
-        print("No Fingerprints Supplied for Sample")
-        raise ValueError
+        raise ValueError("No Fingerprints Supplied for Sample")
     else:
         matching_fingerprints = {}
         db_cnxn = db.SQLConnection()
