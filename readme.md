@@ -107,6 +107,8 @@ python3 -m pip install -r requirements.txt
 python3 server.py
 ```
 Add these to the start.sh file of the Project
+
+
 ---
 Current Fingerprinting Paramters:
 1. Recording Length = 10s<br><br>
