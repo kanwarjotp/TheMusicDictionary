@@ -78,4 +78,3 @@ def build_app(first_build: bool = False, schema_to_use: str = None):
         add_song_to_app(key, song_info_dict[key])
         
     new_conn.close_cnx()          
-    
