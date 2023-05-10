@@ -9,13 +9,13 @@ import config
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app) # an encryption lib to encrypt the passwords
-app.secret_key= config.SECRET_KEY
+app.secret_key= config.SECRET_KEY # setting the secret key for the session
 app.config.update(
   PERMANENT_SESSION_LIFETIME = config.PERMANENT_SESSION_LIFETIME,
   SESSION_PERMANENT = False,
   SESSSION_COOKIE_NAME = "tmduser",
   SESSION_TYPE = "filesystem"
-) # setting the secret key for the session
+)
 
 Session(app) # creating the flask session
 

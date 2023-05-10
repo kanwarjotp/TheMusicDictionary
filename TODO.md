@@ -7,14 +7,13 @@ The Music Dictionary TODO list.
 - [ ] Fix the Browser Back button, session ignorance bug. 12-4-2023
 - [ ] Make the Credits Page
 - [ ] Innovate on the UI
-- [ ] Remove mail address from user's information. Use unique usernames only
 - [ ] Add documentations for remaining functions.
 
 ### In Progress
 
 - [ ] Work on Github Repo [TheMusicDictionary]
 - [ ] Automatically refresh part of webpage when the prediciton is generated.
-
+- [ ] Remove mail address from user's information. Use unique usernames only
 
 ### Done ✓
 
