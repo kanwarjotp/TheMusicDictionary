@@ -87,7 +87,7 @@ files_folder = "" # your songs directory
 
 After you have done so. Its time to build the application. To do so simply run the ***build_database.sh*** file. This will fingeprint all the songs in files_folder and upload them to the database specified in the [logic config files](#logic-config).
 
-Now we are almost done, with the hard part. 
+Pat your back, you have dealt with the hard part!!
 
 ### Running the Web Application.
 All that's left is for you to run ***start.sh*** file and go to the link where the website is hosted on your local network. 
