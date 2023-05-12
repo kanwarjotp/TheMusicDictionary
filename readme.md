@@ -1,8 +1,8 @@
 # The Music Dictionary
 
-A Music Recoginition Web Application, which works by utilizing Audio Fingerprinting. *In a continous state of Development*
+A Music Recoginition Web Application, which works by utilizing Audio Fingerprinting. The web application, “The Musical Dictionary” a web-based client that presents an interactive environment for the user to submit song recordings as queries and explore prediction generated based on Audiofingerprinting. Using the Scientific Python Libraries: SciPy, scikit-image and NumPy, an audio file is converted to an array, representing the waveform of the track, which is then converted to a spectrogram, by use of matplotlib. Using scikit-image, Peaks are identified and paired, along with their time offsets. This information is stores in a hash, SHA5, which forms the fingerprint to be stored in an MySQL Server. This Database is then used by the Backend of the Web Client to recognize songs, recorded by the user. The recording is sent to the backend using AJAX. Flask and Bootstrap 5, JavaScript are used at backend and frontend respectively. *In a continous state of Development*
 
-The Project is still in development and may not work correctly or unexpectedly, please feel free to raise an Issue or a PR to point out a problem or suggest a fix. All contribution are welcome.
+The Project is still in development and may not work correctly or work unexpectedly, please feel free to raise an Issue or a PR to point out a problem or suggest a fix. All contribution are welcome.
 
 
 ## Installation on a Local Machine
@@ -108,10 +108,16 @@ python3 server.py
 ```
 Add these to the start.sh file of the Project
 
----
-Current Fingerprinting Paramters:
+## Current Fingerprinting Paramters:
 1. Recording Length = 10s<br><br>
 2. Minimum Distance b/w Peaks = 25
 3. Minimum Intensity = 30
 4. Max Segment to Fingerprint = 15
 5. <b>Mean Time to Prediction= 39s</b>
+
+## Thanks
+
++ Will Drevo's [Blog](https://willdrevo.com/fingerprinting-and-audio-recognition-with-python/) on Audiofingerprinting and his [Dejavu Repo](https://github.com/worldveil/dejavu) that helped me start this project.
++ Milos Miljkovic and his [instructive video](https://www.youtube.com/watch?v=xDFARS_oIfM&t) on PyLance, without which this project was just not going to work. Also thanks to his [repo](https://github.com/miishke/PyDataNYC2015)
++ Meinard Müller's Book, [Fundamentals of Music Processing](https://link.springer.com/book/10.1007/978-3-319-21945-5)
++ And lastly thanks to every one at Stackoverflow.
