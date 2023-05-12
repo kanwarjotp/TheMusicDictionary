@@ -11,7 +11,7 @@ To install and run the project on a local machine you must fullfil the following
 1. Python 3
 2. A MySQL Server
 
-Once you are sure that the above requirements are statisfied, it's time to install all the required packages. This is required only for the first time.
+Once you are sure that the above requirements are statisfied, it's time to install all the required packages. To do so run the following cmds in bash. This is required only for the first time.
 
 ```sh
 python3 -m pip install -U pip
