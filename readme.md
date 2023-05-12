@@ -118,6 +118,6 @@ Add these to the start.sh file of the Project
 ## Thanks
 
 + Will Drevo's [Blog](https://willdrevo.com/fingerprinting-and-audio-recognition-with-python/) on Audiofingerprinting and his [Dejavu Repo](https://github.com/worldveil/dejavu) that helped me start this project.
-+ Milos Miljkovic and his [instructive video](https://www.youtube.com/watch?v=xDFARS_oIfM&t) on PyLance, without which this project was just not going to work. Also thanks to his [repo](https://github.com/miishke/PyDataNYC2015)
-+ Meinard Müller's Book, [Fundamentals of Music Processing](https://link.springer.com/book/10.1007/978-3-319-21945-5)
++ Milos Miljkovic and his [instructive video](https://www.youtube.com/watch?v=xDFARS_oIfM&t) on PyData, without which this project was just not going to work,his [GitHub Repo](https://github.com/miishke/PyDataNYC2015).
++ Meinard Müller's Book, [Fundamentals of Music Processing](https://link.springer.com/book/10.1007/978-3-319-21945-5).
 + And lastly thanks to every one at Stackoverflow.
