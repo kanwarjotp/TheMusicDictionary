@@ -37,7 +37,7 @@ class Fingerprint:
         self._peaks = []
         self._hashes = []
 
-    def get_fingerprint(self, plot: bool = False, verbose: bool = False):
+    def generate_fingerprint(self, plot: bool = False, verbose: bool = False):
         """
 
         :param plot: Boolean, set True if the plots of spectrograms and peaks are desired, defaults to False

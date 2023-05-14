@@ -35,7 +35,7 @@ def add_song_to_app(name: str, song_address: str):
     if song_id != -1:  # not a DUPLICATE
 
         f = fingerprint.Fingerprint(song_address, song_id)
-        fingerprints = f.get_fingerprint(plot=False, verbose=True)
+        fingerprints = f.generate_fingerprint(plot=False, verbose=True)
         num_fingerprints = len(fingerprints)
 
         for fprint in fingerprints:
