@@ -1,8 +1,8 @@
 import os
 
-import logic.config as config
-import logic.sql_database as db
-import logic.fingerprint as fingerprint
+import TMDEngine.config as config
+import TMDEngine.sql_database as db
+import TMDEngine.fingerprint as fingerprint
 
 
 # create fingerprints of known songs and add to database

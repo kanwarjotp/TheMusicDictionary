@@ -1,8 +1,8 @@
 # final run script for using the recognition application
-import logic.fingerprint as fingerprint
-import logic.recognize as recognize
-import logic.config as conf
-import logic.sql_database as db
+import TMDEngine.fingerprint as fingerprint
+import TMDEngine.recognize as recognize
+import TMDEngine.config as conf
+import TMDEngine.sql_database as db
 
 user_sample = conf.test_rec  # path to user's recording
 

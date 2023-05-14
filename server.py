@@ -4,7 +4,7 @@ from flask_bcrypt import Bcrypt
 import sqlite3
 import subprocess
 
-import logic.run as run_engine # the py module for music recognition
+import TMDEngine.run as run_engine # the py module for music recognition
 import config
 
 app = Flask(__name__)

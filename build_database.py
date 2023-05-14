@@ -1,8 +1,8 @@
 import json
 from datetime import datetime
 
-from logic import build
-from logic import config
+from TMDEngine import build
+from TMDEngine import config
 
 
 if __name__ == "__main__": # building the application for the first time, calling from cmd

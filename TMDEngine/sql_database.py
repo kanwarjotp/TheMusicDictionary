@@ -1,7 +1,7 @@
 import mysql.connector
 from mysql.connector import errorcode
 
-import logic.config as config
+import TMDEngine.config as config
 
 
 class SQLConnection:
