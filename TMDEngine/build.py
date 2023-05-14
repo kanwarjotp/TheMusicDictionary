@@ -10,7 +10,7 @@ import TMDEngine.fingerprint as fingerprint
 # get files and names of songs
 def get_files(address_to_files_folder: str):
     """
-    A function that accesses the local folder containing the .wav files and save their path and names
+    Access the local folder containing the .wav files and save their path and names
     :param address_to_files_folder: local directory containing wav files
     :return: a dictionary with key values as song_address names and values as path to the files
     """
@@ -23,7 +23,7 @@ def get_files(address_to_files_folder: str):
 
 def add_song_to_app(name: str, song_address: str):
     """
-    A function to update the song_address info and related fingerprints(after their creation) to the Engine Database.
+    Update the song_address info and related fingerprints(after their creation) to the Engine Database.
     Any DUPLICATE songs will not be added to database
     :param name: name of the song, this will be stored in the song table of the database
     :param song_address: the local path to the .wav file fo the song_address
