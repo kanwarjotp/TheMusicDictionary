@@ -10,7 +10,7 @@ user_sample = conf.test_rec  # path to user's recording
 def engine() -> str:
 
     fprinter_for_sample = fingerprint.Fingerprint(user_sample)
-    fprints_of_sample = fprinter_for_sample.get_fingerprint(verbose=True)  # the fingerprints for sample
+    fprints_of_sample = fprinter_for_sample.generate_fingerprint(verbose=True)  # the fingerprints for sample
 
 
     testing_ = fprints_of_sample
