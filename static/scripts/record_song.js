@@ -11,12 +11,14 @@ async function getMedia(constraints) {
         recorder.addEventListener('dataavailable', handleRecData)
 
         recorder.start()
-        alert(recorder.state)
+        // alert(recorder.state)
+        updtButton(1)
 
         setTimeout(function(){
             recorder.stop()
             first_track.stop()
-            alert("recording stopped")
+            // alert("recording stopped")
+            updtButton(2)
         }
         , 10000)
 
@@ -41,4 +43,21 @@ function handleRecData(event){
     save_form.append("sample_data", rec_sample, "rec_sample")
     send_req.open("POST", "/process_sample", true)
     send_req.send(save_form)
+}
+
+function updtButton(value) {
+    const bttn = document.getElementById("rec-bttn")
+    if (value == 0) {
+        bttn.disabled = false
+        bttn.innerHTML = "click to record"
+    } else if (value == 1) {
+        bttn.disabled = true
+        bttn.innerHTML = "recording"
+        bttn.style = " background-color: red;"
+    } else if (value == 2) {
+        bttn.disabled = true
+        bttn.innerHTML = "working"
+        bttn.style = " background-color: black;"
+
+    }
 }
