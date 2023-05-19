@@ -133,12 +133,16 @@ def profilePage():
   # if someone tries to access a profile page without sigining in
   if session == {}:
     return redirect(url_for('hello'))
+    
   
   return render_template("profile.html", data=session)
+
 
 # Process sample sent to server by the recorder
 @app.route("/process_sample", methods=["POST"])
 def process_sample():
+  
+  
   recorded_sample = request.files["sample_data"]
   
   # saving the recording sample to disk
