@@ -109,6 +109,9 @@
     />
   </head>
   <body>
+    <!-- link for the prrdiction function -->
+    <span id="prediction-link"> song_prediction </span>
+
       <header class="mb-auto ">
         <div>
 <!--           <h3 class="float-md-start mb-0">TMD</h3> -->
@@ -149,7 +152,6 @@
             <div id="dev_output">
               <p class="col-md-8 fs-4">  
                 <span id="prediction"></span>
-                Prediction: {{ data['song_prediction'] }}
               </p>
             </div>
             <button class="btn btn-primary btn-lg" id="rec-bttn" type="button" onclick="getMedia()">

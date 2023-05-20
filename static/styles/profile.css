@@ -43,6 +43,10 @@ body{
   background-color: black;
 }
 
+#prediction-link {
+  display: none;
+}
+
 /* #dev-output{
   display: none;
 } */

@@ -12,7 +12,6 @@ The Music Dictionary TODO list.
 ### In Progress
 
 - [ ] Work on Github Repo [TheMusicDictionary]
-- [ ] Automatically refresh part of webpage when the prediciton is generated.
 - [ ] Remove mail address from user's information. Use unique usernames only
 
 ### Done ✓
@@ -21,4 +20,5 @@ The Music Dictionary TODO list.
 - [x] Create Recorder on Profile Page
 - [x] Add the Music Recognintion Logic to the Site.
 - [x] Work around for "record_out.wav" already exists in ffmpeg
+- [x] Automatically refresh part of webpage when the prediciton is generated.
 

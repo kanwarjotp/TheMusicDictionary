@@ -3,9 +3,11 @@ from flask_session import Session
 from flask_bcrypt import Bcrypt
 import sqlite3
 import subprocess
+import json
 
 import TMDEngine.run as run_engine # the py module for music recognition
 import config
+
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app) # an encryption lib to encrypt the passwords
@@ -34,6 +36,7 @@ def signIn():
     return redirect(url_for('profilePage'))
   
   return render_template("signIn.html")
+      
                         
 # the sign up page
 @app.route("/signup")
@@ -44,6 +47,7 @@ def signUp():
     return redirect(url_for('profilePage'))
   
   return render_template("signUp.html")
+
 
 # Add Credentials to Database and redirect to profile page
 @app.route("/signUpValidation", methods=["POST"])
@@ -140,9 +144,7 @@ def profilePage():
 
 # Process sample sent to server by the recorder
 @app.route("/process_sample", methods=["POST"])
-def process_sample():
-  
-  
+def process_sample():  
   recorded_sample = request.files["sample_data"]
   
   # saving the recording sample to disk
@@ -152,10 +154,21 @@ def process_sample():
   # converting the saved file to RIFF/RIFX
   subprocess.run(["powershell", "ffmpeg -y -i rec_sample.wav rec_output.wav"], shell=True)
   
-  session['song_prediction'] = run_engine.engine()
-  print(session['song_prediction'])
-  
   return redirect(url_for("profilePage"))
+
+
+@app.route("/song_prediction")
+def gen_prediction():
+  engine_pred = run_engine.engine()
+  print(engine_pred)\
+  
+  pred_json = json.dumps({
+    "ans": engine_pred
+  })
+  
+  return pred_json
+  
+  
 
 
 # logout function

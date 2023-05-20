@@ -37,19 +37,42 @@ function handleRecData(event){
     console.log(sample_url)
     const rec_audio = new Audio(sample_url)
 
-
+    // sending the data to server 
     const send_req = new XMLHttpRequest()
     var save_form = new FormData()
     save_form.append("sample_data", rec_sample, "rec_sample")
     send_req.open("POST", "/process_sample", true)
     send_req.send(save_form)
+
+    askForPrediction()
 }
+
+
+async function askForPrediction(){
+    const pred_url = document.getElementById("prediction-link").innerHTML
+
+    console.log(pred_url)
+    fetch(pred_url)
+    .then(response=>response.json())
+    .then(data=>{
+        console.log(data)
+        const pred_div = document.getElementById("prediction")
+        pred_div.innerHTML = data["ans"]
+        updtButton(3)
+
+        // updating the button to record a new song
+        setTimeout(function(){updtButton(0)}, 5000)
+
+    })
+}
+
 
 function updtButton(value) {
     const bttn = document.getElementById("rec-bttn")
     if (value == 0) {
         bttn.disabled = false
         bttn.innerHTML = "click to record"
+        bttn.style = "background-color: #0d6efd"
     } else if (value == 1) {
         bttn.disabled = true
         bttn.innerHTML = "recording"
@@ -58,6 +81,9 @@ function updtButton(value) {
         bttn.disabled = true
         bttn.innerHTML = "working"
         bttn.style = " background-color: black;"
-
+    } else if (value == 3) {
+        bttn.disabled = true
+        bttn.innerHTML = "song found!"
+        bttn.style = " background-color: green;"
     }
 }
