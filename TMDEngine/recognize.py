@@ -43,15 +43,15 @@ def find_final_song_id(pairs):
     counts_tds = dict()
 
     for i in pairs:
-        tds = i[2]  # the time differences
+        tds = i[1]  # the time differences
         counts_tds[tds] = counts_tds.get(tds, 0) + 1
 
     max_tds_count = max(counts_tds, key=counts_tds.get)
 
     songs_max_tds = {}
     for i in pairs:
-        if i[2] == max_tds_count:
-            sid = i[1]
+        if i[1] == max_tds_count:
+            sid = i[0]
             songs_max_tds[sid] = songs_max_tds.get(sid, 0) + 1
 
     return max(songs_max_tds, key=songs_max_tds.get), songs_max_tds

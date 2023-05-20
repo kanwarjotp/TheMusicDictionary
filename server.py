@@ -141,10 +141,12 @@ def profilePage():
   
   return render_template("profile.html", data=session)
 
+rec_created = False  # flag for recording created
 
 # Process sample sent to server by the recorder
 @app.route("/process_sample", methods=["POST"])
 def process_sample():  
+  global rec_created # to modify flag
   recorded_sample = request.files["sample_data"]
   
   # saving the recording sample to disk
@@ -154,22 +156,29 @@ def process_sample():
   # converting the saved file to RIFF/RIFX
   subprocess.run(["powershell", "ffmpeg -y -i rec_sample.wav rec_output.wav"], shell=True)
   
+  rec_created = True  # allow song identification to take place
   return redirect(url_for("profilePage"))
 
 
 @app.route("/song_prediction")
 def gen_prediction():
+  global rec_created
+  
+  while rec_created == False: # waiting for recording to be created
+    continue
+  
+  # song recording has been created and identification can begin
   engine_pred = run_engine.engine()
-  print(engine_pred)\
+  print(engine_pred)
   
   pred_json = json.dumps({
     "ans": engine_pred
   })
   
+  rec_created = False  # resetting flag
+  
   return pred_json
   
-  
-
 
 # logout function
 @app.route('/logout')

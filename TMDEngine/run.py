@@ -17,19 +17,28 @@ def engine() -> str:
     # lookup the fingerprints using hash matching
     matching_fingerprints_in_db = recognize.look_for_matches(testing_)  # trying at first on a2 fingerprints
 
-    not_matched_at_all = 0
-    for i in matching_fingerprints_in_db.keys():
-        if not matching_fingerprints_in_db[i]:
-            not_matched_at_all += 1
+    # testing code  
+    # not_matched_at_all = 0
+    # for i in matching_fingerprints_in_db.keys():
+    #     if not matching_fingerprints_in_db[i]:
+    #         not_matched_at_all += 1
+
+    #aligning matches according to time offsets
+    all_aligned_pairs = []
+    for each_sample_fprint in matching_fingerprints_in_db.keys():
+        sample_fprint = each_sample_fprint
+        corres_matches = matching_fingerprints_in_db[each_sample_fprint]
+        if not corres_matches:  # in case of empty arrays
+            continue
+        aligned_pairs = recognize.align_matches(
+            fingerprint_of_sample=sample_fprint, list_of_matched_fingerprints=corres_matches
+        )
+
+        all_aligned_pairs += aligned_pairs
 
 
-    all_pairs = []
-    for f in matching_fingerprints_in_db.keys():
-        if matching_fingerprints_in_db[f]:
-            all_pairs += matching_fingerprints_in_db[f]
-
-
-    song_id, dict_songs = recognize.find_final_song_id(all_pairs)
+    song_id, dict_songs = recognize.find_final_song_id(all_aligned_pairs)
+    print("#####################################\n\ndict of songs returned", dict_songs)
 
     obj_to_save_song_name = db.SQLConnection()
     
