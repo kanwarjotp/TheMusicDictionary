@@ -17,19 +17,24 @@ def engine() -> str:
     # lookup the fingerprints using hash matching
     matching_fingerprints_in_db = recognize.look_for_matches(testing_)  # trying at first on a2 fingerprints
 
-    not_matched_at_all = 0
-    for i in matching_fingerprints_in_db.keys():
-        if not matching_fingerprints_in_db[i]:
-            not_matched_at_all += 1
+    # testing code  
+    # not_matched_at_all = 0
+    # for i in matching_fingerprints_in_db.keys():
+    #     if not matching_fingerprints_in_db[i]:
+    #         not_matched_at_all += 1
 
 
+    # process returned matches into one array
     all_pairs = []
     for f in matching_fingerprints_in_db.keys():
-        if matching_fingerprints_in_db[f]:
+        if matching_fingerprints_in_db[f]: # there is atleast one fingerprint matching for this hash
             all_pairs += matching_fingerprints_in_db[f]
 
+    # aligning the matches
 
+    print("++++++++++++++++++++++++++++++++++++\n\npairs pasing to find song_id", all_pairs)
     song_id, dict_songs = recognize.find_final_song_id(all_pairs)
+    print("#####################################\n\ndict of songs returned", dict_songs)
 
     obj_to_save_song_name = db.SQLConnection()
     

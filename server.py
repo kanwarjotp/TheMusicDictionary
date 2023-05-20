@@ -160,7 +160,7 @@ def process_sample():
 @app.route("/song_prediction")
 def gen_prediction():
   engine_pred = run_engine.engine()
-  print(engine_pred)\
+  print(engine_pred)
   
   pred_json = json.dumps({
     "ans": engine_pred
@@ -168,8 +168,6 @@ def gen_prediction():
   
   return pred_json
   
-  
-
 
 # logout function
 @app.route('/logout')
