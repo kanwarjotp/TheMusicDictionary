@@ -23,17 +23,21 @@ def engine() -> str:
     #     if not matching_fingerprints_in_db[i]:
     #         not_matched_at_all += 1
 
+    #aligning matches according to time offsets
+    all_aligned_pairs = []
+    for each_sample_fprint in matching_fingerprints_in_db.keys():
+        sample_fprint = each_sample_fprint
+        corres_matches = matching_fingerprints_in_db[each_sample_fprint]
+        if not corres_matches:  # in case of empty arrays
+            continue
+        aligned_pairs = recognize.align_matches(
+            fingerprint_of_sample=sample_fprint, list_of_matched_fingerprints=corres_matches
+        )
 
-    # process returned matches into one array
-    all_pairs = []
-    for f in matching_fingerprints_in_db.keys():
-        if matching_fingerprints_in_db[f]: # there is atleast one fingerprint matching for this hash
-            all_pairs += matching_fingerprints_in_db[f]
+        all_aligned_pairs += aligned_pairs
 
-    # aligning the matches
 
-    print("++++++++++++++++++++++++++++++++++++\n\npairs pasing to find song_id", all_pairs)
-    song_id, dict_songs = recognize.find_final_song_id(all_pairs)
+    song_id, dict_songs = recognize.find_final_song_id(all_aligned_pairs)
     print("#####################################\n\ndict of songs returned", dict_songs)
 
     obj_to_save_song_name = db.SQLConnection()
