@@ -13,6 +13,8 @@ The Music Dictionary TODO list.
 
 - [ ] Work on Github Repo [TheMusicDictionary]
 - [ ] Remove mail address from user's information. Use unique usernames only
+- [ ] Add more songs to the datatbase.
+- [ ] Check fingerpinting parameters to check for optimiztion possibilities.
 
 ### Done ✓
 
