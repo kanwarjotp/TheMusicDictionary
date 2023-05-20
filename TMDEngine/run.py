@@ -12,10 +12,8 @@ def engine() -> str:
     fprinter_for_sample = fingerprint.Fingerprint(user_sample)
     fprints_of_sample = fprinter_for_sample.generate_fingerprint(verbose=True)  # the fingerprints for sample
 
-
-    testing_ = fprints_of_sample
     # lookup the fingerprints using hash matching
-    matching_fingerprints_in_db = recognize.look_for_matches(testing_)  # trying at first on a2 fingerprints
+    matching_fingerprints_in_db = recognize.look_for_matches(fprints_of_sample)  # trying at first on a2 fingerprints
 
     # testing code  
     # not_matched_at_all = 0
@@ -28,7 +26,7 @@ def engine() -> str:
     for each_sample_fprint in matching_fingerprints_in_db.keys():
         sample_fprint = each_sample_fprint
         corres_matches = matching_fingerprints_in_db[each_sample_fprint]
-        if not corres_matches:  # in case of empty arrays
+        if not corres_matches:  # in case of empty arrays, i.e. no match for rec hash found in Database
             continue
         aligned_pairs = recognize.align_matches(
             fingerprint_of_sample=sample_fprint, list_of_matched_fingerprints=corres_matches
