@@ -23,4 +23,5 @@ The Music Dictionary TODO list.
 - [x] Add the Music Recognintion Logic to the Site.
 - [x] Work around for "record_out.wav" already exists in ffmpeg
 - [x] Automatically refresh part of webpage when the prediciton is generated.
+- [x] user recording were not being aligned and WERE THE REASON for inaccurate identifcation. Fixed that.
 

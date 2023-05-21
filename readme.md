@@ -39,8 +39,8 @@ Notes about config.py:
 1. SECRET_KEY: A variable to store the secret key configuration for the Flask app. This key is required to create a secure Session in the Flask App.
 2. PERMANENT_SESSION_LIFETIME: As the name suggests, it sets the maximum age of a permanent Flask Session.
 
-#### logic Module Config {#logic-config}
-Navigate to the folder named ***logic*** in the directory. Once you are inside the fodler create a new file, ***config.py***. Copy the following code into that file.
+#### TMDEngine Package Config
+Navigate to the folder named ***TMDEngine*** in the directory. Once you are inside the fodler create a new file, ***config.py***. Copy the following code into that file.
 
 ```py
 # the directory containing the wavs of the songs to be fingerprinted.
@@ -79,7 +79,7 @@ Notes about config.py:
 The config file in logic module is mainly to facilitate easy development and testing, and thus will be useful if you wish to change the behaviour of the logic module at one place. Neverthless, even if you don't intend to *experiement*, so to say it is still a lot easier to have all relevant config information in one place.
 
 ### Building the App
-The next step is to build the app on your machine so it can recognise songs. The First Step would be decide which songs you would like to fingerprint. Once that has been decided store the songs in wav format in a directory on your computer and replace the address in the [logic config files](#logic-config).
+The next step is to build the app on your machine so it can recognise songs. The First Step would be decide which songs you would like to fingerprint. Once that has been decided store the songs in wav format in a directory on your computer and replace the address in the [TMDEngine config file](#TMDEngine-package-config).
 
 ```py
 files_folder = "" # your songs directory
@@ -117,7 +117,7 @@ Add these to the start.sh file of the Project
 
 ## Thanks
 
-+ Will Drevo's [Article](https://willdrevo.com/fingerprinting-and-audio-recognition-with-python/) on Audiofingerprinting and the [Dejavu Repo](https://github.com/worldveil/dejavu) that helped me start this project.
-+ Milos Miljkovic and his [instructive video](https://www.youtube.com/watch?v=xDFARS_oIfM&t) on PyData, without which this project was just not going to work, the [GitHub Repo](https://github.com/miishke/PyDataNYC2015).
-+ Meinard Müller's Book, [Fundamentals of Music Processing](https://link.springer.com/book/10.1007/978-3-319-21945-5).
++ Will Drevo's [Article](https://willdrevo.com/fingerprinting-and-audio-recognition-with-python/) on Audiofingerprinting  that helped me start this project and the [Dejavu Repo](https://github.com/worldveil/dejavu).
++ Milos Miljkovic and his [instructive video](https://www.youtube.com/watch?v=xDFARS_oIfM&t) on PyData, without which this project wouldn't have reached completion, the [GitHub Repo](https://github.com/miishke/PyDataNYC2015).
++ Meinard Müller's Book, [Fundamentals of Music Processing](https://link.springer.com/book/10.1007/978-3-319-21945-5) for explaining all the underlyinc concepts in an understandable and lucid manner.
 + And lastly thanks to every one at Stackoverflow.
