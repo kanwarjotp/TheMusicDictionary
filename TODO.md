@@ -16,6 +16,7 @@ The Music Dictionary TODO list.
 - [ ] Add more songs to the datatbase.
 - [ ] Check fingerpinting parameters to check for optimiztion possibilities.
 - [ ] Convey Confidence of Prediction to User.
+- [ ] Add admin Features: View Users,Remove User
 
 ### Done ✓
 
