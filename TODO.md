@@ -15,6 +15,7 @@ The Music Dictionary TODO list.
 - [ ] Remove mail address from user's information. Use unique usernames only
 - [ ] Add more songs to the datatbase.
 - [ ] Check fingerpinting parameters to check for optimiztion possibilities.
+- [ ] Convey Confidence of Prediction to User.
 
 ### Done ✓
 
