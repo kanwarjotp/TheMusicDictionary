@@ -143,35 +143,6 @@ def profilePage():
 
 rec_created = False  # flag for recording created
 
-
-@app.route("/adminPage", methods=["POST", "GET"])
-def admin_page():
-  con  = sqlite3.connect("accounts")
-  con.row_factory = sqlite3.Row
-  cur = con.cursor()            
-  
-  cur.execute("select id, username, mail from users;")    
-  rows = cur.fetchall()          
-  con.close ()
-  
-  return render_template("adminPage.html", data=rows)
-
-@app.route("/deleteUser", methods=["POST"])
-def delete_user():
-  user_id = request.form.get('uid')
-  
-  con = sqlite3.connect('accounts')
-  con.row_factory = sqlite3.Row
-  cur = con.cursor()
-  
-  cmd = "DELETE FROM users where id = {0}".format(user_id)
-  cur.execute(cmd)
-  con.commit()
-  con.close()
-  
-  return redirect(url_for("admin_page"))
-
-
 # Process sample sent to server by the recorder
 @app.route("/process_sample", methods=["POST"])
 def process_sample():  
@@ -220,6 +191,6 @@ def logout():
 
                   
 if __name__ == "__main__":
-  app.run(debug=True)
+  app.run()
      
 
