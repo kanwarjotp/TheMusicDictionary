@@ -40,7 +40,7 @@ Notes about config.py:
 2. PERMANENT_SESSION_LIFETIME: As the name suggests, it sets the maximum age of a permanent Flask Session.
 
 #### TMDEngine Package Config
-Navigate to the folder named ***TMDEEngine** in the directory. Once you are inside the fodler create a new file, ***config.py***. Copy the following code into that file.
+Navigate to the folder named ***TMDEEngine*** in the directory. Once you are inside the fodler create a new file, ***config.py***. Copy the following code into that file.
 
 ```py
 # the directory containing the wavs of the songs to be fingerprinted.
