@@ -32,10 +32,10 @@ async function getMedia(constraints) {
 
 //   using AJAX to send the BLOB data to the backend.
 function handleRecData(event){
-    console.log(event.data)
+    // console.log(event.data)
     const rec_sample = new Blob([event.data], {'type': 'audio/wav'})
     const sample_url = URL.createObjectURL(rec_sample)
-    console.log(sample_url)
+    // console.log(sample_url)
     const rec_audio = new Audio(sample_url)
 
     // sending the data to server 
@@ -54,12 +54,21 @@ async function askForPrediction(){
     // grabbing URL from the HTML document
     const pred_url = document.getElementById("prediction-link").innerHTML
 
+    const start_time = Date.now()
+
     fetch(pred_url)
     .then(response=>response.json())
     .then(data=>{
         console.log(data)
         const pred_div = document.getElementById("prediction")
+        const time_div = document.getElementById("timeTaken")
+
+        const end_time = Date.now()
+        const time_taken = ((end_time - start_time) / 1000).toFixed(1)
+
         pred_div.innerHTML = data["ans"]
+        time_div.innerHTML = ("Song identfied in ".concat(time_taken)).concat("s")
+
         updtButton(3)
 
         // updating the button to record a new song

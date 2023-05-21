@@ -57,6 +57,10 @@ body {
   display: none;
 }
 
+#timeTaken {
+  font-size: small;
+}
+
 footer {
   /* position: absolute; */
   /* margin-bottom:0; */
