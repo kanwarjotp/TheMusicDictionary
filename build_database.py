@@ -21,3 +21,6 @@ if __name__ == "__main__": # building the application for the first time, callin
         with open("app_params.json", "w") as params:
             params.write(new_app)
         quit("Database {} built".format(config.current_schema))
+        
+        
+    

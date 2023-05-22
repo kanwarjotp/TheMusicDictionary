@@ -63,8 +63,24 @@ def signUpValidation():
   
   con = sqlite3.connect('accounts')
   con.row_factory = sqlite3.Row
-  
   cur = con.cursor()
+  
+  # checking if username is already present
+  u_cmd = 'SELECT username from users where username = "{0}"'.format(username)
+  cur.execute(u_cmd)
+  uname_rows = cur.fetchall()
+  # checking if mail is present
+  m_cmd = 'SELECT mail from users where mail = "{0}"'.format(mail)
+  cur.execute(m_cmd)
+  m_rows = cur.fetchall()
+  
+  if uname_rows != []: # already a user with this username
+    return render_template("signUp.html", msg="Username Taken")
+  
+  if m_rows != []: # already a user with this mail
+    return render_template("signUp.html", msg="Mail address already registered.")
+  
+
   cmd = 'INSERT INTO users (username, mail, password) VALUES("{0}", "{1}", "{2}")'.format( username, mail, pw_hash)
   cur.execute(cmd)
   

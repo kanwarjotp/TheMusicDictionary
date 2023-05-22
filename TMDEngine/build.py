@@ -68,13 +68,13 @@ def build_app(first_build: bool = False, schema_to_use: str = None):
         
 
     new_conn = db.SQLConnection()
-    new_conn.create_tables()
+    new_conn.create_tables()  # create the song and fingerprint tables in the database
 
-    song_info_dict = get_files(config.files_folder)
+    song_info_dict = get_files(config.files_folder)  # access the song files specified
 
     for key in list(song_info_dict.keys())[:1]:
         print(key, song_info_dict[key])
 
-        add_song_to_app(key, song_info_dict[key])
+        add_song_to_app(key, song_info_dict[key])  # create fingerprints and add them to the database
         
     new_conn.close_cnx()          
