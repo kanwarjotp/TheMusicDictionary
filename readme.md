@@ -55,7 +55,7 @@ actual_schema = 'tmd_schema'
 current_schema = actual_Schema
 
 cnxn_conf = {
-    'username': '',  # set your MySQL username for the connection
+    'username': '',  # set the MySQL username for the connection
     'password': '',  # set the MySQL password
     'host': '',  # set the host address
     'database': current_schema
