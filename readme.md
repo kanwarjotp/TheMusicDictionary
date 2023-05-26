@@ -1,6 +1,6 @@
 # The Music Dictionary
 
-A Music Recognition Website, which works by utilizing Audio Fingerprinting. The website, “The Musical Dictionary” presents an interactive environment for the user to submit record songs as queries and explore prediction generated based on Audiofingerprinting. Using the Scientific Python Libraries: SciPy, scikit-image and NumPy, an audio file is converted to an array, representing the waveform of the track, which is then converted to a spectrogram, by use of matplotlib. Using scikit-image, Peaks are identified and paired, along with their time offsets. This information is stores in a hash, SHA5, which forms the fingerprint to be stored in an MySQL Server. This Database is then used by the Backend of the Web Client to recognize songs, recorded by the user. The recording is sent to the backend using AJAX. Flask and Bootstrap 5, JavaScript are used at backend and frontend respectively. *In a continous state of Development*
+A Music Recognition Website, which works by utilizing Audio Fingerprinting. The website, “The Musical Dictionary” presents an interactive environment for the user to submit record songs as queries and explore prediction generated based on Audiofingerprinting.
 
 The Project is still in development and may not work correctly or work unexpectedly, please feel free to raise an Issue or a PR to point out a problem or suggest a fix. All contribution are welcome.
 
@@ -55,7 +55,7 @@ actual_schema = 'tmd_schema'
 current_schema = actual_Schema
 
 cnxn_conf = {
-    'username': '',  # set your MySQL username for the connection
+    'username': '',  # set the MySQL username for the connection
     'password': '',  # set the MySQL password
     'host': '',  # set the host address
     'database': current_schema
