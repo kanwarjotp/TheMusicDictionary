@@ -64,6 +64,12 @@ body {
   border-bottom-color: #fff;
 }
 
+/* landing page Tagline */
+.app-info {
+  background-color: rgba(0, 0, 0, 0.685);
+}
+
+
 footer {
   /* position: absolute;
   margin-bottom:0; */

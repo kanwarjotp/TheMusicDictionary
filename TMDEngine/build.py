@@ -5,7 +5,7 @@ import TMDEngine.sql_database as db
 import TMDEngine.fingerprint as fingerprint
 
 
-# create fingerprints of known songs and add to database
+
 
 # get files and names of songs
 def get_files(address_to_files_folder: str):
@@ -21,6 +21,7 @@ def get_files(address_to_files_folder: str):
     return songs
 
 
+# create fingerprints of known songs and add to database
 def add_song_to_app(name: str, song_address: str):
     """
     Update the song_address info and related fingerprints(after their creation) to the Engine Database.

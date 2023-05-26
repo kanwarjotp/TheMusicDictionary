@@ -12,6 +12,7 @@ def look_for_matches(fingerprints_of_sample=None):
     if fingerprints_of_sample is None:
         fingerprints_of_sample = []
     if not fingerprints_of_sample:
+        # recording not viable
         raise ValueError("No Fingerprints Supplied for Sample")
     else:
         matching_fingerprints = {}
