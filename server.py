@@ -178,22 +178,33 @@ def process_sample():
 
 @app.route("/song_prediction")
 def gen_prediction():
-  global rec_created
+  try:
+    global rec_created
+    
+    while rec_created == False: # waiting for recording to be created
+      continue
+    
+    
+    # song recording has been created and identification can begin
+    engine_pred = run_engine.engine()
+    print(engine_pred)
+    
+    pred_json = json.dumps({
+      "ans": engine_pred
+    })
+    
+    rec_created = False  # resetting flag
+    
+    return pred_json
+  except ValueError as v:
+    pred_json = json.dumps({
+      "ans" : "Recording Not Viable"
+    })
+    
+    rec_created = False
+    
+    return pred_json
   
-  while rec_created == False: # waiting for recording to be created
-    continue
-  
-  # song recording has been created and identification can begin
-  engine_pred = run_engine.engine()
-  print(engine_pred)
-  
-  pred_json = json.dumps({
-    "ans": engine_pred
-  })
-  
-  rec_created = False  # resetting flag
-  
-  return pred_json
   
 
 # logout function
