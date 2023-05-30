@@ -21,6 +21,11 @@ app.config.update(
 
 Session(app) # creating the flask session
 
+"""
+Database Tables:
+
+users: CREATE TABLE users (id integer primary key autoincrement,  username varchar(30) not null, mail varchar(30) not null, password varchar(60) not null);
+"""
 
 @app.route('/')
 def hello():
