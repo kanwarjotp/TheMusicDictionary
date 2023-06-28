@@ -1,10 +1,10 @@
 html,
-body{
+body {
   height: 100%;
-  
+
   /* in case the bg-image doesn't load */
   background-image: linear-gradient(black, lightblue);
-  
+
   background-image: url("https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/bgImage.jpg?v=1681119703717");
 }
 
@@ -17,11 +17,11 @@ body {
   background-color: #f5f5f5;
 }
 
-.white-text{
+.white-text {
   color: white;
 }
 
-.black-text{
+.black-text {
   color: black;
 }
 
@@ -37,7 +37,7 @@ body {
   border-bottom-color: rgba(255, 255, 255, 0.25);
 }
 
-.nav-masthead .nav-link + .nav-link {
+.nav-masthead .nav-link+.nav-link {
   margin-left: 1rem;
 }
 
@@ -46,7 +46,7 @@ body {
   border-bottom-color: #fff;
 }
 
-.profile-nav{
+.profile-nav {
   color: white !important;
   padding-right: 10vw;
   justify-content: end;
@@ -69,7 +69,7 @@ footer {
 
 }
 
-a{
+a {
   color: #fff;
 }
 

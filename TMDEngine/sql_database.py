@@ -27,10 +27,10 @@ class SQLConnection:
     }
 
     def __init__(self, build_schema: str = None):
-        if build_schema is not None: # a new schema is to be created
+        if build_schema is not None:  # a new schema is to be created
             self._cnx = mysql.connector.connect(**config.first_cnxn)
             self._cur = self._cnx.cursor()
-            
+
             # creating the specified database
             self.create_database(build_schema)
         else:
@@ -45,7 +45,6 @@ class SQLConnection:
                     print("Database does not exist")
                 else:
                     raise err
-            
 
     def close_cnx(self):
         self._cnx.close()
@@ -55,7 +54,8 @@ class SQLConnection:
 
     def create_database(self, db_name: str):
         # create the database if it doesn't exist
-        self._cur.execute('''CREATE DATABASE IF NOT EXISTS {0}'''.format(db_name))
+        self._cur.execute(
+            '''CREATE DATABASE IF NOT EXISTS {0}'''.format(db_name))
         self._cnx.commit()
         print("Database Created: ", db_name)
 
@@ -92,7 +92,8 @@ class SQLConnection:
         # (hash_val, (song_id, freq))
         try:
             add_fingerprint = "INSERT INTO fingerprint (hash, song_id, offset) VALUES (UNHEX('{0}'), {1}, {2})"
-            self._cur.execute(add_fingerprint.format(fingerprint[0], fingerprint[1][0], fingerprint[1][1]))
+            self._cur.execute(add_fingerprint.format(
+                fingerprint[0], fingerprint[1][0], fingerprint[1][1]))
             self._cnx.commit()
             return 0  # not a duplicate
         except mysql.connector.Error as err:
@@ -111,7 +112,8 @@ class SQLConnection:
             self._cnx.commit()
         except mysql.connector.Error as err:
             if err.errno == 1062:
-                print("Song already present in database, try a different name for:", song_name)
+                print(
+                    "Song already present in database, try a different name for:", song_name)
                 return -1
             else:
                 raise err
@@ -142,7 +144,8 @@ class SQLConnection:
         # querying the hash
         select_fprint = '''select hex(hash), song_id, offset from fingerprint where
                             hex(hash) = "{}"'''
-        cursor.execute(select_fprint.format(fprint_hash))  # TODO: this loop can be optimized
+        cursor.execute(select_fprint.format(fprint_hash)
+                       )  # TODO: this loop can be optimized
         for result in cursor:
             fingerprints.append(result)
         cursor.close()

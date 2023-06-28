@@ -10,18 +10,20 @@ user_sample = conf.test_rec  # path to user's recording
 def engine() -> str:
 
     fprinter_for_sample = fingerprint.Fingerprint(user_sample)
-    fprints_of_sample = fprinter_for_sample.generate_fingerprint(verbose=True)  # the fingerprints for sample
+    fprints_of_sample = fprinter_for_sample.generate_fingerprint(
+        verbose=True)  # the fingerprints for sample
 
     # lookup the fingerprints using hash matching
-    matching_fingerprints_in_db = recognize.look_for_matches(fprints_of_sample)  # trying at first on a2 fingerprints
+    matching_fingerprints_in_db = recognize.look_for_matches(
+        fprints_of_sample)  # trying at first on a2 fingerprints
 
-    # testing code  
+    # testing code
     # not_matched_at_all = 0
     # for i in matching_fingerprints_in_db.keys():
     #     if not matching_fingerprints_in_db[i]:
     #         not_matched_at_all += 1
 
-    #aligning matches according to time offsets
+    # aligning matches according to time offsets
     all_aligned_pairs = []
     for each_sample_fprint in matching_fingerprints_in_db.keys():
         sample_fprint = each_sample_fprint
@@ -34,11 +36,10 @@ def engine() -> str:
 
         all_aligned_pairs += aligned_pairs
 
-
     song_id, dict_songs = recognize.find_final_song_id(all_aligned_pairs)
     print("#####################################\n\ndict of songs returned", dict_songs)
 
     obj_to_save_song_name = db.SQLConnection()
-    
 
-    return (obj_to_save_song_name.find_song(song_id))[0][1] # returns the name of the song as in the database
+    # returns the name of the song as in the database
+    return (obj_to_save_song_name.find_song(song_id))[0][1]

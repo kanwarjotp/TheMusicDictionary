@@ -20,7 +20,8 @@ def look_for_matches(fingerprints_of_sample=None):
         for fingerprints in fingerprints_of_sample:
             # a list of fingerprints with hashes matching the sample's hash
             fingerprint_in_db = db_cnxn.find_fingerprint(fingerprints[0])
-            matching_fingerprints[fingerprints] = fingerprint_in_db  # adding fingerprints found
+            # adding fingerprints found
+            matching_fingerprints[fingerprints] = fingerprint_in_db
 
         return matching_fingerprints
 
@@ -56,5 +57,3 @@ def find_final_song_id(pairs):
             songs_max_tds[sid] = songs_max_tds.get(sid, 0) + 1
 
     return max(songs_max_tds, key=songs_max_tds.get), songs_max_tds
-
-

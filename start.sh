@@ -1,1 +1,2 @@
-python3 server.py
+conda activate musical
+python server.py

@@ -7,7 +7,8 @@
 .btn-light:hover,
 .btn-light:focus {
   color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
+  text-shadow: none;
+  /* Prevent inheritance from `body` */
 }
 
 /*
@@ -41,9 +42,9 @@ body {
 /*
  * Header
  */
- .nav-masthead{
+.nav-masthead {
   background-color: rgba(0, 0, 0, 0.685);
- }
+}
 
 .nav-masthead .nav-link {
   color: rgba(255, 255, 255, 0.685);
@@ -55,7 +56,7 @@ body {
   border-bottom-color: rgba(255, 255, 255, 0.25);
 }
 
-.nav-masthead .nav-link + .nav-link {
+.nav-masthead .nav-link+.nav-link {
   margin-left: 1rem;
 }
 
@@ -76,6 +77,6 @@ footer {
   background-color: rgba(0, 0, 0, 0.685);
 }
 
-a{
+a {
   color: #fff;
 }

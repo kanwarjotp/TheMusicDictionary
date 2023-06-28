@@ -4,7 +4,7 @@ body {
 
   /* in case the bg-image doesn't load */
   background-image: linear-gradient(black, lightblue);
-  
+
   background-image: url("https://cdn.glitch.global/362931b8-a838-4282-8710-5c583b99ad23/bgImage.jpg?v=1681119703717");
   color: white;
 }
@@ -24,6 +24,7 @@ body {
   padding: 15px;
   color: black;
 }
+
 .h3 {
   color: white
 }
@@ -40,7 +41,7 @@ body {
 }
 
 .form-signup input[type="email"] {
-/*   margin-bottom: -1px; */
+  /*   margin-bottom: -1px; */
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
@@ -61,7 +62,7 @@ body {
   border-top-right-radius: 0;
 }
 
-.server-msg{
+.server-msg {
   color: #fff;
 }
 
@@ -75,6 +76,6 @@ footer {
   background-color: rgba(0, 0, 0, 0.685);
 }
 
-a{
+a {
   color: #fff;
 }
