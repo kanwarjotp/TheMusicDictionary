@@ -142,3 +142,5 @@ flask_session
 
 # the config files for logic
 logic/config.py
+
+.vscode
