@@ -1,6 +1,6 @@
 # The Music Dictionary
 
-A Music Recognition Website, which works by utilizing Audio Fingerprinting. The website, “The Musical Dictionary” presents an interactive environment for the user to submit record songs as queries and explore prediction generated based on Audiofingerprinting.
+A Music Recognition Website, which works by utilizing Audio Fingerprinting. The website, “The Music Dictionary” presents an interactive environment for the user to submit record songs as queries and explore prediction generated based on Audiofingerprinting.
 
 The Project is still in development and may not work correctly or work unexpectedly, please feel free to raise an Issue or a PR to point out a problem or suggest a fix. All contribution are welcome.
 
