@@ -2,7 +2,27 @@
 
 A Music Recognition Website, which works by utilizing Audio Fingerprinting. The website, “The Music Dictionary” presents an interactive environment for the user to submit record songs as queries and explore prediction generated based on Audiofingerprinting.
 
-The Project is still in development and may not work correctly or work unexpectedly, please feel free to raise an Issue or a PR to point out a problem or suggest a fix. All contribution are welcome.
+## The Whats, Hows, and Whys?
+
+This is a Dynamic Website that records audio snippets of songs at the user's machine and returns the title of the song. 
+
+The Website, which serves as the front-end is fundamentally a Flask Whisky Server, with certain add-ons and personalisations to make it more, mainstream. These additions are :
+
+1. Password Encryption, using Bcrypt
+2. Client Side Validation
+3. Server Side Validation
+4. Tweaks to Flask Session Time Lines
+5. Interactive Forms, ansd so on...
+
+The Music Recognition Engine, which forms the brains of the whole operations is a Python Package, which is imported to the Server. I installed the package to my local machine, however this might not be possible for everyone so, I have kept it as a number of modules in the TMDEngine Folder. It's sailient development features are :
+
+1. wavfile, of SciPy (reading audio into app)
+2. matplotlib, for visualising the spectrogram
+3. scikit-image, for peak finding
+4. hashlib, numpy and others for various features
+5. the databases are manipulated using mysql-connectors
+
+To make it easier to start-up from scratch, I have addes some shell scripts, they will take up the bulk of the work and are described in details, below. Beware they look more tedious than they are.
 
 ## Installation on a Local Machine
 
