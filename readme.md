@@ -1,6 +1,29 @@
 # The Music Dictionary
 
 A Music Recognition Website, which works by utilizing Audio Fingerprinting. The website, “The Music Dictionary” presents an interactive environment for the user to submit record songs as queries and explore prediction generated based on Audiofingerprinting.
+During this project, I designed and developed a Music Recognition Application that operates as a web-based platform. The application offers real-time predictions by dynamically analyzing user-submitted recordings of music pieces captured through their microphones. The primary challenge of this project was to create a robust classification methodology capable of uniquely identifying specific audio files. This involved a comprehensive exploration of acoustics principles, including frequencies, amplitudes, and other essential properties of music signals.
+
+Project Highlights:
+
+The project's scope extended into the realm of music information retrieval, necessitating an in-depth understanding of how a machine digitally interprets music signals. This involved quantifiable values like note frequencies, durations, loudness, and amplitudes. This approach distilled music classification to the fundamental building blocks of acoustics. The project aimed to extract unique features from a music piece, addressing the question: "What distinguishes this music?"
+
+The Music Recognition Engine followed a multi-step process:
+
+Fingerprint Generation: The engine creates unique fingerprints of the recorded audio files.
+
+Fingerprint Matching: These fingerprints are matched against known song fingerprints stored in a database.
+
+Audio Processing: The process involves various audio processing steps, including specific fingerprint selection and prediction generation.
+
+User Interface: The results are conveyed to the end-user through a website interface.
+
+The project was entirely written in Python 3.10.10 and employed a diverse range of industry-standard packages and cutting-edge modules. The logic for the music dictionary executed the entire process, showcasing the power of Python in implementing complex audio processing workflows.
+
+Music Representation:
+
+The foundation of the project rested on gathering information from music, which can be represented in physical, symbolic, and audio forms. Physical representation involves traditional musical scores with notations. Symbolic representation digitizes musical notes, often using formats like MIDI. More advanced forms like Spectrograms and Waveforms are also used for symbolic representation, allowing retrieval of specific properties. Audio representation refers to file formats like WAV, FLAC, and MP3. WAV files, used in this project due to their uncompressed nature, provided ample data and detailed information about audio files.
+
+In conclusion, the Music Recognition Application project delved into the intricacies of acoustics and music processing, combining Python programming, audio processing techniques, and web development to create a powerful and user-friendly platform for music recognition and classification.
 
 ## The Whats, Hows, and Whys?
 
