@@ -30,7 +30,7 @@ In conclusion, the Music Recognition Application project delved into the intrica
 
 This is a Dynamic Website that records audio snippets of songs at the user's machine and returns the title of the song. 
 
-The Website, which serves as the front-end is fundamentally a Flask Whisky Server, with certain add-ons and personalisations to make it more, mainstream. These additions are :
+The Website, which serves as the front-end is fundamentally a Flask WSGI Server, with certain add-ons and personalisations to make it more, mainstream. These additions are :
 
 1. Password Encryption, using Bcrypt
 2. Client Side Validation
