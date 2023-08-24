@@ -1,6 +1,7 @@
 # The Music Dictionary
 
 A Music Recognition Website, which works by utilizing Audio Fingerprinting. The website, “The Music Dictionary” presents an interactive environment for the user to submit record songs as queries and explore prediction generated based on Audiofingerprinting.
+
 During this project, I designed and developed a Music Recognition Application that operates as a web-based platform. The application offers real-time predictions by dynamically analyzing user-submitted recordings of music pieces captured through their microphones. The primary challenge of this project was to create a robust classification methodology capable of uniquely identifying specific audio files. This involved a comprehensive exploration of acoustics principles, including frequencies, amplitudes, and other essential properties of music signals.
 
 Project Highlights:
