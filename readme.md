@@ -3,11 +3,26 @@
 A Music Recognition Website, which works by utilizing Audio Fingerprinting. The website, “The Music Dictionary” presents an interactive environment for the user to submit record songs as queries and explore prediction generated based on Audiofingerprinting.
 
 During this project, I designed and developed a Music Recognition Application that operates as a web-based platform. The application offers real-time predictions by dynamically analyzing user-submitted recordings of music pieces captured through their microphones. The primary challenge of this project was to create a robust classification methodology capable of uniquely identifying specific audio files. This involved a comprehensive exploration of acoustics principles, including frequencies, amplitudes, and other essential properties of music signals.
+<br><br>
+<figure>
+<img width="500" alt="landing page" src="https://github.com/kanwarjotp/TheMusicDictionary/assets/52690070/0da72e5d-6e4a-4418-b8a7-a88af24b667e">
+<figcaption>Landing Page</figcaption>
+</img>
+</figure>
+<br><br><br>
 
 Project Highlights:
 
 The project's scope extended into the realm of music information retrieval, necessitating an in-depth understanding of how a machine digitally interprets music signals. This involved quantifiable values like note frequencies, durations, loudness, and amplitudes. This approach distilled music classification to the fundamental building blocks of acoustics. The project aimed to extract unique features from a music piece, addressing the question: "What distinguishes this music?"
+<br><br>
+<br>
+<figure>
 
+<figcaption>Spectrogram Plot</figcaption>
+<img width="500" src="https://github.com/kanwarjotp/TheMusicDictionary/assets/52690070/7cbb3670-ab17-41ed-9630-0299f896ba88">
+</img>
+</figure>
+<br><br><br>
 The Music Recognition Engine followed a multi-step process:
 
 Fingerprint Generation: The engine creates unique fingerprints of the recorded audio files.
