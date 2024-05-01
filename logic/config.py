@@ -11,14 +11,14 @@ current_schema = test_schema_2
 
 cnxn_conf = {
     'username': "root",
-    'password': "sql102000@",
-    'host': '127.0.0.2',
+    'password': "",
+    'host': '',
     'database': current_schema
 }
 
 first_cnxn = {
-    'username': "root",
-    'password': "sql102000@",
-    'host': '127.0.0.2'
+    'username': "",
+    'password': "",
+    'host': ''
 }
 are_you_sure = False
