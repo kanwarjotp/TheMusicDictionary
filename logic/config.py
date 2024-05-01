@@ -1,6 +1,6 @@
-test_rec = "F:/The Music Dict/TheMusicDictionary/rec_output.wav"
+test_rec = ""
 
-files_folder = "F:\Audio_Fingerprinting\wav_files"
+files_folder = ""
 
 actual_schema = "tmd_schema"
 test_schema = "tmd_test_schema"
