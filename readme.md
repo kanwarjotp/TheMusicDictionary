@@ -45,15 +45,7 @@ In conclusion, the Music Recognition Application project delved into the intrica
 
 This is a Dynamic Website that records audio snippets of songs at the user's machine and returns the title of the song. 
 
-The Website, which serves as the front-end is fundamentally a Flask WSGI Server, with certain add-ons and personalisations to make it more, mainstream. These additions are :
-
-1. Password Encryption, using Bcrypt
-2. Client Side Validation
-3. Server Side Validation
-4. Tweaks to Flask Session Time Lines
-5. Interactive Forms, ansd so on...
-
-The Music Recognition Engine, which forms the brains of the whole operations is a Python Package, which is imported to the Server. I installed the package to my local machine, however this might not be possible for everyone so, I have kept it as a number of modules in the TMDEngine Folder. It's sailient development features are :
+The Music Recognition Engine, which forms the brains of the whole operations is a Python Package I created, which is imported to the Server. I installed the package to my local machine, however this might not be possible for everyone so, I have kept it as a number of modules in the TMDEngine Folder. It's sailient development features are :
 
 1. wavfile, of SciPy (reading audio into app)
 2. matplotlib, for visualising the spectrogram
@@ -62,6 +54,14 @@ The Music Recognition Engine, which forms the brains of the whole operations is 
 5. the databases are manipulated using mysql-connectors
 
 To make it easier to start-up from scratch, I have addes some shell scripts, they will take up the bulk of the work and are described in details, below. Beware they look more tedious than they are.
+
+The Website, which serves as the front-end is fundamentally a Flask WSGI Server, with certain add-ons and personalisations to make it more, mainstream. These additions are :
+
+1. Password Encryption, using Bcrypt
+2. Client Side Validation
+3. Server Side Validation
+4. Tweaks to Flask Session Time Lines
+5. Interactive Forms, ansd so on...
 
 ## Installation on a Local Machine
 
